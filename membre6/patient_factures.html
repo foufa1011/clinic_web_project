@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Patient - Mes Factures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header-title">
+            <h1> Espace Facturation</h1>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span style="color: #7f8c8d; font-size: 14px;">Session : Patient</span>
+                <a href="index.html"
+                    style="text-decoration: none; background: #3498db; color: white; padding: 8px 15px; border-radius: 5px; font-size: 13px; font-weight: bold;">
+                    <i class="fas fa-sign-out-alt"></i> Déconnexion
+                </a>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-title"> Payer une facture
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label>Choisir le service</label>
+                        <select>
+                            <option>Analyse de sang - Laboratoire (45.00 DT)</option>
+                            <option>Consultation Dentaire (40.00 DT)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Nom sur la carte</label>
+                        <input type="text" placeholder="Ex: Mohamed Ben Salem">
+                    </div>
+                    <div class="form-group">
+                        <label>Numéro de carte bancaire</label>
+                        <input type="text" placeholder="**** **** **** ****">
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <div class="form-group" style="flex: 2;">
+                            <label>Date d'expiration</label>
+                            <input type="text" placeholder="MM/AA">
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>CVC</label>
+                            <input type="password" placeholder="***">
+                        </div>
+                    </div>
+                    <button type="button" class="btn-primary" onclick="alert('Paiement réussi !')">Valider le
+                        règlement</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <div class="card-title"> Mes transactions récentes</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Service</th>
+                            <th>Montant</th>
+                            <th>Statut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10/02/2026</td>
+                            <td>Consultation Dentaire</td>
+                            <td><strong>40.00 DT</strong></td>
+                            <td><span class="badge badge-warning">EN ATTENTE</span></td>
+                        </tr>
+                        <tr>
+                            <td>12/02/2026</td>
+                            <td>Laboratoire</td>
+                            <td><strong>45.00 DT</strong></td>
+                            <td><span class="badge badge-warning">EN ATTENTE</span></td>
+                        </tr>
+                        <tr>
+                            <td>05/01/2026</td>
+                            <td>Cardiologie</td>
+                            <td><strong>60.00 DT</strong></td>
+                            <td><span class="badge badge-success">PAYÉ</span></td>
+                        </tr>
+                        <tr>
+                            <td>20/12/2025</td>
+                            <td>Radiologie</td>
+                            <td><strong>85.00 DT</strong></td>
+                            <td><span class="badge badge-success">PAYÉ</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
