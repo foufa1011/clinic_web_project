@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pharmacie - Médicaments Disponibles</title>
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header>
+<div class="top-nav">
+<h1> HealthCare Clinic - Pharmacie</h1>
+<ul class="nav-links">
+<li><a href="index.html"> Accueil</a></li>
+<li><a href="patient_rdv.html"> Rendez-vous</a></li>
+<li><a href="patient_medecins.html"> Médecins</a></li>
+<li><a href="patient_medicaments.html" class="active"> Pharmacie</a></li>
+<li><a href="patient_blog.html"> Blog</a></li>
+<li><button class="btn btn-danger">Déconnexion</button></li>
+</ul>
+</div>
+</header>
+
+<div class="content">
+
+<div class="card">
+<h1>Pharmacie - Médicaments Disponibles</h1>
+<p style="color: #666; margin-top: 10px;">Consultez notre catalogue de médicaments disponibles avec leurs prix et disponibilités</p>
+</div>
+
+<div class="info-box">
+<strong> Information :</strong> Les prix indiqués sont à titre indicatif. Pour toute prescription médicale, veuillez consulter un médecin. Les médicaments sur ordonnance nécessitent une prescription valide.
+</div>
+
+<div class="card">
+<h2> Rechercher un médicament</h2>
+<div class="search-container">
+<input type="text" placeholder="Rechercher par nom de médicament...">
+<select>
+<option value="">Toutes les catégories</option>
+<option value="analgesique">Analgésiques</option>
+<option value="antibiotique">Antibiotiques</option>
+<option value="cardiovasculaire">Cardiovasculaires</option>
+<option value="digestif">Digestifs</option>
+<option value="respiratoire">Respiratoires</option>
+<option value="vitamines">Vitamines & Suppléments</option>
+</select>
+<button class="btn btn-primary">Rechercher</button>
+</div>
+</div>
+
+<div class="card">
+<h2> Catégories Principales</h2>
+<div class="category-grid">
+<div class="category-card">
+<h3> Analgésiques</h3>
+<p>25 produits</p>
+</div>
+<div class="category-card">
+<h3>💉 Antibiotiques</h3>
+<p>18 produits</p>
+</div>
+<div class="category-card">
+<h3> Cardiovasculaires</h3>
+<p>12 produits</p>
+</div>
+<div class="category-card">
+<h3> Respiratoires</h3>
+<p>15 produits</p>
+</div>
+<div class="category-card">
+<h3> Vitamines</h3>
+<p>22 produits</p>
+</div>
+<div class="category-card">
+<h3> Autres</h3>
+<p>35 produits</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h2> Liste des Médicaments</h2>
+<table>
+<thead>
+<tr>
+<th>Nom du Médicament</th>
+<th>Catégorie</th>
+<th>Description</th>
+<th>Dosage</th>
+<th>Prix (TND)</th>
+<th>Disponibilité</th>
+<th>Ordonnance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Paracétamol</strong></td>
+<td>Analgésique</td>
+<td>Soulagement de la douleur et de la fièvre</td>
+<td>500mg</td>
+<td class="price">5.99</td>
+<td><span class="status-ok">✓ En stock (450)</span></td>
+<td>Non</td>
+</tr>
+<tr>
+<td><strong>Ibuprofène</strong></td>
+<td>Analgésique</td>
+<td>Anti-inflammatoire non stéroïdien</td>
+<td>400mg</td>
+<td class="price">8.50</td>
+<td><span class="status-ok">✓ En stock (280)</span></td>
+<td>Non</td>
+</tr>
+<tr>
+<td><strong>Amoxicilline</strong></td>
+<td>Antibiotique</td>
+<td>Traitement des infections bactériennes</td>
+<td>250mg</td>
+<td class="price">12.99</td>
+<td><span class="status-low">⚠ Stock limité (75)</span></td>
+<td>Oui</td>
+</tr>
+<tr>
+<td><strong>Aspirine</strong></td>
+<td>Analgésique</td>
+<td>Antidouleur et anticoagulant</td>
+<td>100mg</td>
+<td class="price">3.99</td>
+<td><span class="status-ok">✓ En stock (520)</span></td>
+<td>Non</td>
+</tr>
+<tr>
+<td><strong>Oméprazole</strong></td>
+<td>Digestif</td>
+<td>Traitement des troubles gastriques</td>
+<td>20mg</td>
+<td class="price">15.50</td>
+<td><span class="status-ok">✓ En stock (165)</span></td>
+<td>Oui</td>
+</tr>
+<tr>
+<td><strong>Loratadine</strong></td>
+<td>Antihistaminique</td>
+<td>Traitement des allergies</td>
+<td>10mg</td>
+<td class="price">9.75</td>
+<td><span class="status-ok">✓ En stock (210)</span></td>
+<td>Non</td>
+</tr>
+<tr>
+<td><strong>Metformine</strong></td>
+<td>Antidiabétique</td>
+<td>Contrôle de la glycémie (diabète type 2)</td>
+<td>500mg</td>
+<td class="price">18.99</td>
+<td><span class="status-ok">✓ En stock (145)</span></td>
+<td>Oui</td>
+</tr>
+<tr>
+<td><strong>Atorvastatine</strong></td>
+<td>Cardiovasculaire</td>
+<td>Réduction du cholestérol</td>
+<td>10mg</td>
+<td class="price">22.50</td>
+<td><span class="status-low">⚠ Stock limité (45)</span></td>
+<td>Oui</td>
+</tr>
+<tr>
+<td><strong>Salbutamol</strong></td>
+<td>Respiratoire</td>
+<td>Bronchodilatateur (asthme)</td>
+<td>100mcg/dose</td>
+<td class="price">14.25</td>
+<td><span class="status-ok">✓ En stock (98)</span></td>
+<td>Oui</td>
+</tr>
+<tr>
+<td><strong>Vitamine D3</strong></td>
+<td>Vitamines</td>
+<td>Supplément vitaminique</td>
+<td>1000 UI</td>
+<td class="price">11.50</td>
+<td><span class="status-ok">✓ En stock (340)</span></td>
+<td>Non</td>
+</tr>
+<tr>
+<td><strong>Zinc</strong></td>
+<td>Suppléments</td>
+<td>Renforcement du système immunitaire</td>
+<td>15mg</td>
+<td class="price">8.99</td>
+<td><span class="status-ok">✓ En stock (275)</span></td>
+<td>Non</td>
+</tr>
+<tr>
+<td><strong>Magnésium</strong></td>
+<td>Suppléments</td>
+<td>Complément en magnésium</td>
+<td>300mg</td>
+<td class="price">13.75</td>
+<td><span class="status-ok">✓ En stock (188)</span></td>
+<td>Non</td>
+</tr>
+<tr>
+<td><strong>Azithromycine</strong></td>
+<td>Antibiotique</td>
+<td>Traitement des infections respiratoires</td>
+<td>250mg</td>
+<td class="price">16.99</td>
+<td><span class="status-low">⚠ Stock limité (32)</span></td>
+<td>Oui</td>
+</tr>
+<tr>
+<td><strong>Cetirizine</strong></td>
+<td>Antihistaminique</td>
+<td>Traitement des symptômes allergiques</td>
+<td>10mg</td>
+<td class="price">7.50</td>
+<td><span class="status-ok">✓ En stock (425)</span></td>
+<td>Non</td>
+</tr>
+<tr>
+<td><strong>Lisinopril</strong></td>
+<td>Cardiovasculaire</td>
+<td>Traitement de l'hypertension</td>
+<td>10mg</td>
+<td class="price">19.99</td>
+<td><span class="status-out">✗ Rupture de stock</span></td>
+<td>Oui</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="card">
+<h2> Besoin d'aide ?</h2>
+<p style="margin-bottom: 15px;">Pour toute question concernant les médicaments ou les prescriptions :</p>
+<ul style="margin-left: 20px; line-height: 1.8;">
+<li> Contactez notre pharmacien : <strong>+216 71 123 456</strong></li>
+<li> Email : <strong>pharmacie@healthcareclinic.tn</strong></li>
+<li> Horaires : Lundi - Vendredi : 8h00 - 20h00 | Samedi : 9h00 - 18h00</li>
+<li> Urgences : Service disponible 24h/24</li>
+</ul>
+</div>
+
+</div>
+
+<footer>
+<p>&copy; 2026 HealthCare Clinic - Tous droits réservés</p>
+<p style="margin-top: 5px; font-size: 14px;">Pharmacie agréée par le Ministère de la Santé - Licence N° 12345</p>
+</footer>
+
+</body>
+</html>
