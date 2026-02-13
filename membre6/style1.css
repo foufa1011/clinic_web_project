@@ -1,4 +1,4 @@
-/* --- Styles Généraux --- */
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fa;
@@ -21,7 +21,7 @@ body {
     padding: 20px;
 }
 
-/* --- Cartes et Design --- */
+
 .card,
 .stat-card {
     background: white;
@@ -40,7 +40,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* --- Header & Navigation --- */
+
 .header-title {
     display: flex;
     justify-content: space-between;
@@ -50,7 +50,7 @@ body {
     padding-bottom: 10px;
 }
 
-/* --- Tableaux --- */
+
 .table-responsive {
     overflow-x: auto;
 }
@@ -75,7 +75,7 @@ td {
     font-size: 14px;
 }
 
-/* --- Badges de statut --- */
+
 .badge {
     padding: 5px 10px;
     border-radius: 20px;
@@ -95,7 +95,7 @@ td {
     color: #f39c12 !important;
 }
 
-/* --- Formulaires --- */
+
 .form-group {
     margin-bottom: 15px;
 }
@@ -131,7 +131,7 @@ select {
     background: #2980b9;
 }
 
-/* --- Admin Spécifique --- */
+
 .icon-box {
     width: 50px;
     height: 50px;
@@ -141,3 +141,4 @@ select {
     border-radius: 50%;
 
 }
+
