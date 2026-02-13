@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes Analyses - HealthCare Clinic</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        footer { background: #2c3e50; color: white; text-align: center; padding: 20px 0; margin-top: 50px; }
+        .footer-content { font-size: 14px; opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-nav">
+            <h1>🏥 HealthCare Clinic</h1>
+            <ul class="nav-links">
+                <li><a href="patient_rdv.html">Mes Rendez-vous</a></li>
+                <li><a href="patient_analyses.html" class="active">Mes Analyses</a></li>
+                <li><a href="index.html">Déconnexion</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="card">
+            <h2>📑 Mon Historique Médical Numérisé</h2>
+            <p>Consultez et téléchargez vos derniers rapports médicaux officiels.</p>
+            
+            <table style="margin-top: 25px;">
+                <thead>
+                    <tr>
+                        <th>Date de l'examen</th>
+                        <th>Type d'Analyse / Rapport</th>
+                        <th>Médecin Référent</th>
+                        <th>Observation</th>
+                        <th>Document</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>14/02/2026</td>
+                        <td>Bilan Sanguin Complet</td>
+                        <td>Dr. Sarah Johnson</td>
+                        <td><span class="status-ok">Normal</span></td>
+                        <td><button class="btn btn-primary">Télécharger PDF</button></td>
+                    </tr>
+                    <tr>
+                        <td>10/01/2026</td>
+                        <td>Test PCR - COVID/Grippe</td>
+                        <td>Service Urgences</td>
+                        <td>Négatif</td>
+                        <td><button class="btn btn-primary">Télécharger PDF</button></td>
+                    </tr>
+                    <tr>
+                        <td>05/12/2025</td>
+                        <td>Radiologie Thoracique</td>
+                        <td>Dr. Sami Ali</td>
+                        <td>Voir conclusions</td>
+                        <td><button class="btn btn-primary">Télécharger PDF</button></td>
+                    </tr>
+                    <tr>
+                        <td>20/10/2025</td>
+                        <td>Analyse de Glycémie</td>
+                        <td>Labo Central</td>
+                        <td>Légère hausse</td>
+                        <td><button class="btn btn-primary">Télécharger PDF</button></td>
+                    </tr>
+                    <tr>
+                        <td>15/09/2025</td>
+                        <td>Examen Cardiologique</td>
+                        <td>Dr. Mounir Mansour</td>
+                        <td><span class="status-ok">Stable</span></td>
+                        <td><button class="btn btn-primary">Télécharger PDF</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 HealthCare Clinic - Votre santé, notre priorité</p>
+            <p>Accès Patient Sécurisé | ESPRIT 2026</p>
+        </div>
+    </footer>
+</body>
+</html>
