@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Annuaire Médical - HealthCare Clinic</title>
+<link rel="stylesheet" href="assets/css/style2.css">
+</head>
+<body>
+
+<header>
+  <div class="top-nav">
+    <h1>🏥 HealthCare Clinic - Espace Patient</h1>
+    <ul class="nav-links">
+      <li><a href="patient_rdv.html">📅 Rendez-vous</a></li>
+      <li><a href="patient_analyses.html">📊 Analyses</a></li>
+      <li><a href="patient_medecins.html" class="active">👨‍⚕️ Médecins</a></li>
+      <li><a href="patient_medicaments.html">💊 Médicaments</a></li>
+      <li><a href="patient_blog.html">📰 Blog Santé</a></li>
+      <li><a href="patient_factures.html">💳 Factures</a></li>
+      <li><a href="index.html"><button class="btn btn-danger">Déconnexion</button></a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="content">
+
+  <div class="card">
+    <h2>👨‍⚕️ Annuaire Médical</h2>
+    <p style="color:#666; margin-top:5px;">Trouvez le médecin ou l'infirmier(ère) qui correspond à vos besoins et prenez rendez-vous en ligne.</p>
+  </div>
+
+  <div class="grid">
+    <div class="stat-card" style="background:#3498db;"><h3>Total Médecins</h3><div class="number">12</div><p>Spécialistes disponibles</p></div>
+    <div class="stat-card" style="background:#2ecc71;"><h3>Disponibles aujourd'hui</h3><div class="number">8</div><p>Prêts à vous recevoir</p></div>
+    <div class="stat-card" style="background:#9b59b6;"><h3>Spécialités</h3><div class="number">7</div><p>Domaines couverts</p></div>
+    <div class="stat-card" style="background:#f39c12;"><h3>Infirmiers</h3><div class="number">5</div><p>En service</p></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-bottom:15px;">🔍 Rechercher un médecin / infirmier</h3>
+    <div class="filter-bar">
+      <input type="text" id="searchInput" placeholder="Nom du médecin..." oninput="filterDoctors()">
+      <select id="filterSpecialty" onchange="filterDoctors()">
+        <option value="">Toutes les spécialités</option>
+        <option value="Cardiologie">Cardiologie</option>
+        <option value="Pédiatrie">Pédiatrie</option>
+        <option value="Dermatologie">Dermatologie</option>
+        <option value="Neurologie">Neurologie</option>
+        <option value="Orthopédie">Orthopédie</option>
+        <option value="Gynécologie">Gynécologie</option>
+        <option value="Médecine Générale">Médecine Générale</option>
+        <option value="Infirmier(ère)">Infirmier(ère)</option>
+      </select>
+      <select id="filterDisponibility" onchange="filterDoctors()">
+        <option value="">Toute disponibilité</option>
+        <option value="Disponible">Disponible</option>
+        <option value="Indisponible">Indisponible</option>
+      </select>
+      <button class="btn btn-primary" onclick="resetFilters()">↩ Réinitialiser</button>
+    </div>
+  </div>
+
+  <div class="doctors-grid" id="doctorsGrid">
+
+    <div class="doctor-card" data-specialty="Cardiologie" data-dispo="Disponible" data-name="sarah johnson">
+      <div class="doctor-card-header">
+        <div class="doctor-avatar" style="background:#3498db;">👨‍⚕️</div>
+        <h3>Dr. Sarah Johnson</h3>
+        <span class="specialty-badge" style="background:#3498db;">Cardiologie</span>
+        <div class="stars">⭐ 4.9/5</div><small style="color:#999;">(234 avis)</small>
+      </div>
+      <div class="doctor-card-body">
+        <p>⏱ 15 ans d'expérience</p>
+        <p>🕐 Lun – Ven : 08h00 – 16h00</p>
+        <p>📞 +216 71 100 001</p>
+        <p>✅ <span class="status-available">Disponible aujourd'hui</span></p>
+      </div>
+      <div class="doctor-card-footer">
+        <button class="btn btn-primary" onclick="openModal('dr-sarah')">Voir le profil</button>
+        <button class="btn btn-success" onclick="bookAppointment('Dr. Sarah Johnson')">Prendre RDV</button>
+      </div>
+    </div>
+
+    <div class="doctor-card" data-specialty="Pédiatrie" data-dispo="Disponible" data-name="michael chen">
+      <div class="doctor-card-header">
+        <div class="doctor-avatar" style="background:#2ecc71;">👨‍⚕️</div>
+        <h3>Dr. Michael Chen</h3>
+        <span class="specialty-badge" style="background:#2ecc71;">Pédiatrie</span>
+        <div class="stars">⭐ 4.8/5</div><small style="color:#999;">(189 avis)</small>
+      </div>
+      <div class="doctor-card-body">
+        <p>⏱ 10 ans d'expérience</p>
+        <p>🕐 Lun – Sam : 09h00 – 17h00</p>
+        <p>📞 +216 71 100 002</p>
+        <p>✅ <span class="status-available">Disponible aujourd'hui</span></p>
+      </div>
+      <div class="doctor-card-footer">
+        <button class="btn btn-primary" onclick="openModal('dr-chen')">Voir le profil</button>
+        <button class="btn btn-success" onclick="bookAppointment('Dr. Michael Chen')">Prendre RDV</button>
+      </div>
+    </div>
+
+    <div class="doctor-card" data-specialty="Dermatologie" data-dispo="Disponible" data-name="amira belhaj">
+      <div class="doctor-card-header">
+        <div class="doctor-avatar" style="background:#e67e22;">👩‍⚕️</div>
+        <h3>Dr. Amira Belhaj</h3>
+        <span class="specialty-badge" style="background:#e67e22;">Dermatologie</span>
+        <div class="stars">⭐ 4.7/5</div><small style="color:#999;">(156 avis)</small>
+      </div>
+      <div class="doctor-card-body">
+        <p>⏱ 8 ans d'expérience</p>
+        <p>🕐 Mar – Sam : 10h00 – 18h00</p>
+        <p>📞 +216 71 100 003</p>
+        <p>✅ <span class="status-available">Disponible aujourd'hui</span></p>
+      </div>
+      <div class="doctor-card-footer">
+        <button class="btn btn-primary" onclick="openModal('dr-amira')">Voir le profil</button>
+        <button class="btn btn-success" onclick="bookAppointment('Dr. Amira Belhaj')">Prendre RDV</button>
+      </div>
+    </div>
+
+    <div class="doctor-card" data-specialty="Neurologie" data-dispo="Indisponible" data-name="karim mansour">
+      <div class="doctor-card-header">
+        <div class="doctor-avatar" style="background:#9b59b6;">👨‍⚕️</div>
+        <h3>Dr. Karim Mansour</h3>
+        <span class="specialty-badge" style="background:#9b59b6;">Neurologie</span>
+        <div class="stars">⭐ 4.9/5</div><small style="color:#999;">(312 avis)</small>
+      </div>
+      <div class="doctor-card-body">
+        <p>⏱ 20 ans d'expérience</p>
+        <p>🕐 Lun, Mer, Ven : 08h00 – 14h00</p>
+        <p>📞 +216 71 100 004</p>
+        <p>❌ <span class="status-unavailable">Indisponible aujourd'hui</span></p>
+      </div>
+      <div class="doctor-card-footer">
+        <button class="btn btn-primary" onclick="openModal('dr-karim')">Voir le profil</button>
+        <button class="btn btn-warning" onclick="bookAppointment('Dr. Karim Mansour')">Prendre RDV</button>
+      </div>
+    </div>
+
+    <div class="doctor-card" data-specialty="Gynécologie" data-dispo="Disponible" data-name="nadia trabelsi">
+      <div class="doctor-card-header">
+        <div class="doctor-avatar" style="background:#e91e8c;">👩‍⚕️</div>
+        <h3>Dr. Nadia Trabelsi</h3>
+        <span class="specialty-badge" style="background:#e91e8c;">Gynécologie</span>
+        <div class="stars">⭐ 4.8/5</div><small style="color:#999;">(278 avis)</small>
+      </div>
+      <div class="doctor-card-body">
+        <p>⏱ 12 ans d'expérience</p>
+        <p>🕐 Lun – Ven : 09h00 – 17h00</p>
+        <p>📞 +216 71 100 005</p>
+        <p>✅ <span class="status-available">Disponible aujourd'hui</span></p>
+      </div>
+      <div class="doctor-card-footer">
+        <button class="btn btn-primary" onclick="openModal('dr-nadia')">Voir le profil</button>
+        <button class="btn btn-success" onclick="bookAppointment('Dr. Nadia Trabelsi')">Prendre RDV</button>
+      </div>
+    </div>
+
+    <div class="doctor-card" data-specialty="Orthopédie" data-dispo="Disponible" data-name="ali hamdi">
+      <div class="doctor-card-header">
+        <div class="doctor-avatar" style="background:#1abc9c;">👨‍⚕️</div>
+        <h3>Dr. Ali Hamdi</h3>
+        <span class="specialty-badge" style="background:#1abc9c;">Orthopédie</span>
+        <div class="stars">⭐ 4.6/5</div><small style="color:#999;">(98 avis)</small>
+      </div>
+      <div class="doctor-card-body">
+        <p>⏱ 7 ans d'expérience</p>
+        <p>🕐 Lun – Jeu : 08h00 – 15h00</p>
+        <p>📞 +216 71 100 006</p>
+        <p>✅ <span class="status-available">Disponible aujourd'hui</span></p>
+      </div>
+      <div class="doctor-card-footer">
+        <button class="btn btn-primary" onclick="openModal('dr-ali')">Voir le profil</button>
+        <button class="btn btn-success" onclick="bookAppointment('Dr. Ali Hamdi')">Prendre RDV</button>
+      </div>
+    </div>
+
+    <div class="doctor-card" data-specialty="Médecine Générale" data-dispo="Disponible" data-name="leila ben amor">
+      <div class="doctor-card-header">
+        <div class="doctor-avatar" style="background:#c0392b;">👩‍⚕️</div>
+        <h3>Dr. Leila Ben Amor</h3>
+        <span class="specialty-badge" style="background:#c0392b;">Médecine Générale</span>
+        <div class="stars">⭐ 4.7/5</div><small style="color:#999;">(445 avis)</small>
+      </div>
+      <div class="doctor-card-body">
+        <p>⏱ 18 ans d'expérience</p>
+        <p>🕐 Lun – Sam : 08h00 – 18h00</p>
+        <p>📞 +216 71 100 007</p>
+        <p>✅ <span class="status-available">Disponible aujourd'hui</span></p>
+      </div>
+      <div class="doctor-card-footer">
+        <button class="btn btn-primary" onclick="openModal('dr-leila')">Voir le profil</button>
+        <button class="btn btn-success" onclick="bookAppointment('Dr. Leila Ben Amor')">Prendre RDV</button>
+      </div>
+    </div>
+
+    <div class="doctor-card" data-specialty="Infirmier(ère)" data-dispo="Disponible" data-name="sonia mejri">
+      <div class="doctor-card-header">
+        <div class="doctor-avatar" style="background:#34495e;">👩‍⚕️</div>
+        <h3>Sonia Mejri</h3>
+        <span class="specialty-badge" style="background:#34495e;">Infirmière</span>
+        <div class="stars">⭐ 4.9/5</div><small style="color:#999;">(130 avis)</small>
+      </div>
+      <div class="doctor-card-body">
+        <p>⏱ 6 ans d'expérience</p>
+        <p>🕐 Lun – Ven : 07h00 – 15h00</p>
+        <p>📞 +216 71 100 010</p>
+        <p>✅ <span class="status-available">Disponible aujourd'hui</span></p>
+      </div>
+      <div class="doctor-card-footer">
+        <button class="btn btn-primary" onclick="openModal('inf-sonia')">Voir le profil</button>
+        <button class="btn btn-success" onclick="bookAppointment('Sonia Mejri')">Contacter</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="no-results" id="noResults">😔 Aucun médecin ne correspond à votre recherche.</div>
+</div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal-dr-sarah">
+  <div class="modal">
+    <div class="modal-header"><h2>👨‍⚕️ Dr. Sarah Johnson</h2><button class="close-btn" onclick="closeModal('dr-sarah')">✕</button></div>
+    <div class="modal-body">
+      <div style="text-align:center;margin-bottom:20px;"><div style="width:90px;height:90px;background:#3498db;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:40px;">👨‍⚕️</div><span class="specialty-badge" style="background:#3498db;">Cardiologie</span><div class="stars">⭐ 4.9/5 (234 avis)</div></div>
+      <div class="detail-row"><span class="detail-label">📋 Spécialité :</span><span>Cardiologie – Cardiologue certifiée</span></div>
+      <div class="detail-row"><span class="detail-label">🎓 Formation :</span><span>Faculté de Médecine de Tunis – Doctorat en Cardiologie</span></div>
+      <div class="detail-row"><span class="detail-label">⏱ Expérience :</span><span>15 ans</span></div>
+      <div class="detail-row"><span class="detail-label">🗣 Langues :</span><span>Français, Arabe, Anglais</span></div>
+      <div class="detail-row"><span class="detail-label">🕐 Horaires :</span><span>Lundi – Vendredi : 08h00 – 16h00</span></div>
+      <div class="detail-row"><span class="detail-label">📞 Téléphone :</span><span>+216 71 100 001</span></div>
+      <div class="detail-row"><span class="detail-label">📧 Email :</span><span>s.johnson@healthcare-clinic.tn</span></div>
+      <div class="detail-row"><span class="detail-label">ℹ️ Biographie :</span><span>Spécialisée en cardiologie préventive et gestion des maladies cardiaques. Experte en hypertension et gestion du cholestérol.</span></div>
+      <button class="btn btn-success rdv-btn" onclick="bookAppointment('Dr. Sarah Johnson'); closeModal('dr-sarah')">📅 Prendre un rendez-vous</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-dr-chen">
+  <div class="modal">
+    <div class="modal-header"><h2>👨‍⚕️ Dr. Michael Chen</h2><button class="close-btn" onclick="closeModal('dr-chen')">✕</button></div>
+    <div class="modal-body">
+      <div style="text-align:center;margin-bottom:20px;"><div style="width:90px;height:90px;background:#2ecc71;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:40px;">👨‍⚕️</div><span class="specialty-badge" style="background:#2ecc71;">Pédiatrie</span><div class="stars">⭐ 4.8/5 (189 avis)</div></div>
+      <div class="detail-row"><span class="detail-label">📋 Spécialité :</span><span>Pédiatrie</span></div>
+      <div class="detail-row"><span class="detail-label">⏱ Expérience :</span><span>10 ans</span></div>
+      <div class="detail-row"><span class="detail-label">🕐 Horaires :</span><span>Lundi – Samedi : 09h00 – 17h00</span></div>
+      <div class="detail-row"><span class="detail-label">📞 Téléphone :</span><span>+216 71 100 002</span></div>
+      <div class="detail-row"><span class="detail-label">📧 Email :</span><span>m.chen@healthcare-clinic.tn</span></div>
+      <div class="detail-row"><span class="detail-label">ℹ️ Biographie :</span><span>Dédié à la santé et au développement de l'enfant. Expert en vaccinations et suivi de croissance.</span></div>
+      <button class="btn btn-success rdv-btn" onclick="bookAppointment('Dr. Michael Chen'); closeModal('dr-chen')">📅 Prendre un rendez-vous</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-dr-amira">
+  <div class="modal">
+    <div class="modal-header"><h2>👩‍⚕️ Dr. Amira Belhaj</h2><button class="close-btn" onclick="closeModal('dr-amira')">✕</button></div>
+    <div class="modal-body">
+      <div style="text-align:center;margin-bottom:20px;"><div style="width:90px;height:90px;background:#e67e22;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:40px;">👩‍⚕️</div><span class="specialty-badge" style="background:#e67e22;">Dermatologie</span><div class="stars">⭐ 4.7/5 (156 avis)</div></div>
+      <div class="detail-row"><span class="detail-label">📋 Spécialité :</span><span>Dermatologie</span></div>
+      <div class="detail-row"><span class="detail-label">⏱ Expérience :</span><span>8 ans</span></div>
+      <div class="detail-row"><span class="detail-label">🕐 Horaires :</span><span>Mardi – Samedi : 10h00 – 18h00</span></div>
+      <div class="detail-row"><span class="detail-label">📞 Téléphone :</span><span>+216 71 100 003</span></div>
+      <div class="detail-row"><span class="detail-label">ℹ️ Biographie :</span><span>Spécialiste en maladies de la peau, acné, eczéma et dermatologie esthétique.</span></div>
+      <button class="btn btn-success rdv-btn" onclick="bookAppointment('Dr. Amira Belhaj'); closeModal('dr-amira')">📅 Prendre un rendez-vous</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-dr-karim">
+  <div class="modal">
+    <div class="modal-header"><h2>👨‍⚕️ Dr. Karim Mansour</h2><button class="close-btn" onclick="closeModal('dr-karim')">✕</button></div>
+    <div class="modal-body">
+      <div style="text-align:center;margin-bottom:20px;"><div style="width:90px;height:90px;background:#9b59b6;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:40px;">👨‍⚕️</div><span class="specialty-badge" style="background:#9b59b6;">Neurologie</span><div class="stars">⭐ 4.9/5 (312 avis)</div></div>
+      <div class="detail-row"><span class="detail-label">📋 Spécialité :</span><span>Neurologie</span></div>
+      <div class="detail-row"><span class="detail-label">⏱ Expérience :</span><span>20 ans</span></div>
+      <div class="detail-row"><span class="detail-label">🕐 Horaires :</span><span>Lun, Mer, Ven : 08h00 – 14h00</span></div>
+      <div class="detail-row"><span class="detail-label">📞 Téléphone :</span><span>+216 71 100 004</span></div>
+      <div class="detail-row"><span class="detail-label">❌ Disponibilité :</span><span style="color:#e74c3c;font-weight:bold;">Indisponible aujourd'hui</span></div>
+      <div class="detail-row"><span class="detail-label">ℹ️ Biographie :</span><span>Expert en neurologie clinique, épilepsie et troubles du mouvement. Ancien chef de service neurologie au CHU de Tunis.</span></div>
+      <button class="btn btn-warning rdv-btn" onclick="bookAppointment('Dr. Karim Mansour'); closeModal('dr-karim')">📅 Planifier un rendez-vous</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-dr-nadia">
+  <div class="modal">
+    <div class="modal-header"><h2>👩‍⚕️ Dr. Nadia Trabelsi</h2><button class="close-btn" onclick="closeModal('dr-nadia')">✕</button></div>
+    <div class="modal-body">
+      <div style="text-align:center;margin-bottom:20px;"><div style="width:90px;height:90px;background:#e91e8c;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:40px;">👩‍⚕️</div><span class="specialty-badge" style="background:#e91e8c;">Gynécologie</span><div class="stars">⭐ 4.8/5 (278 avis)</div></div>
+      <div class="detail-row"><span class="detail-label">📋 Spécialité :</span><span>Gynécologie – Obstétrique</span></div>
+      <div class="detail-row"><span class="detail-label">⏱ Expérience :</span><span>12 ans</span></div>
+      <div class="detail-row"><span class="detail-label">🕐 Horaires :</span><span>Lundi – Vendredi : 09h00 – 17h00</span></div>
+      <div class="detail-row"><span class="detail-label">📞 Téléphone :</span><span>+216 71 100 005</span></div>
+      <div class="detail-row"><span class="detail-label">ℹ️ Biographie :</span><span>Gynécologue-obstétricienne avec expertise en suivi de grossesse et médecine reproductive.</span></div>
+      <button class="btn btn-success rdv-btn" onclick="bookAppointment('Dr. Nadia Trabelsi'); closeModal('dr-nadia')">📅 Prendre un rendez-vous</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-dr-ali">
+  <div class="modal">
+    <div class="modal-header"><h2>👨‍⚕️ Dr. Ali Hamdi</h2><button class="close-btn" onclick="closeModal('dr-ali')">✕</button></div>
+    <div class="modal-body">
+      <div style="text-align:center;margin-bottom:20px;"><div style="width:90px;height:90px;background:#1abc9c;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:40px;">👨‍⚕️</div><span class="specialty-badge" style="background:#1abc9c;">Orthopédie</span><div class="stars">⭐ 4.6/5 (98 avis)</div></div>
+      <div class="detail-row"><span class="detail-label">📋 Spécialité :</span><span>Orthopédie – Traumatologie</span></div>
+      <div class="detail-row"><span class="detail-label">⏱ Expérience :</span><span>7 ans</span></div>
+      <div class="detail-row"><span class="detail-label">🕐 Horaires :</span><span>Lundi – Jeudi : 08h00 – 15h00</span></div>
+      <div class="detail-row"><span class="detail-label">📞 Téléphone :</span><span>+216 71 100 006</span></div>
+      <div class="detail-row"><span class="detail-label">ℹ️ Biographie :</span><span>Chirurgien orthopédiste spécialisé dans les fractures, arthroplasties et rééducation post-opératoire.</span></div>
+      <button class="btn btn-success rdv-btn" onclick="bookAppointment('Dr. Ali Hamdi'); closeModal('dr-ali')">📅 Prendre un rendez-vous</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-dr-leila">
+  <div class="modal">
+    <div class="modal-header"><h2>👩‍⚕️ Dr. Leila Ben Amor</h2><button class="close-btn" onclick="closeModal('dr-leila')">✕</button></div>
+    <div class="modal-body">
+      <div style="text-align:center;margin-bottom:20px;"><div style="width:90px;height:90px;background:#c0392b;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:40px;">👩‍⚕️</div><span class="specialty-badge" style="background:#c0392b;">Médecine Générale</span><div class="stars">⭐ 4.7/5 (445 avis)</div></div>
+      <div class="detail-row"><span class="detail-label">📋 Spécialité :</span><span>Médecine Générale</span></div>
+      <div class="detail-row"><span class="detail-label">⏱ Expérience :</span><span>18 ans</span></div>
+      <div class="detail-row"><span class="detail-label">🕐 Horaires :</span><span>Lundi – Samedi : 08h00 – 18h00</span></div>
+      <div class="detail-row"><span class="detail-label">📞 Téléphone :</span><span>+216 71 100 007</span></div>
+      <div class="detail-row"><span class="detail-label">ℹ️ Biographie :</span><span>Médecin généraliste expérimentée, premier recours pour tout problème de santé. Prise en charge globale et orientation spécialisée.</span></div>
+      <button class="btn btn-success rdv-btn" onclick="bookAppointment('Dr. Leila Ben Amor'); closeModal('dr-leila')">📅 Prendre un rendez-vous</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-inf-sonia">
+  <div class="modal">
+    <div class="modal-header"><h2>👩‍⚕️ Sonia Mejri – Infirmière</h2><button class="close-btn" onclick="closeModal('inf-sonia')">✕</button></div>
+    <div class="modal-body">
+      <div style="text-align:center;margin-bottom:20px;"><div style="width:90px;height:90px;background:#34495e;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:40px;">👩‍⚕️</div><span class="specialty-badge" style="background:#34495e;">Infirmière</span><div class="stars">⭐ 4.9/5 (130 avis)</div></div>
+      <div class="detail-row"><span class="detail-label">📋 Fonction :</span><span>Infirmière diplômée d'état</span></div>
+      <div class="detail-row"><span class="detail-label">⏱ Expérience :</span><span>6 ans</span></div>
+      <div class="detail-row"><span class="detail-label">🕐 Horaires :</span><span>Lundi – Vendredi : 07h00 – 15h00</span></div>
+      <div class="detail-row"><span class="detail-label">📞 Téléphone :</span><span>+216 71 100 010</span></div>
+      <div class="detail-row"><span class="detail-label">ℹ️ Biographie :</span><span>Infirmière polyvalente : soins quotidiens, prises de sang, injections et accompagnement des patients.</span></div>
+      <button class="btn btn-success rdv-btn" onclick="bookAppointment('Sonia Mejri'); closeModal('inf-sonia')">📅 Contacter</button>
+    </div>
+  </div>
+</div>
+
+<footer><p>&copy; 2024 HealthCare Clinic | Annuaire Médical — Module Safa</p></footer>
+
+<script>
+function filterDoctors() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  const specialty = document.getElementById('filterSpecialty').value;
+  const dispo = document.getElementById('filterDisponibility').value;
+  const cards = document.querySelectorAll('.doctor-card');
+  let visible = 0;
+  cards.forEach(card => {
+    const matchName = card.getAttribute('data-name').includes(search);
+    const matchSpecialty = specialty === '' || card.getAttribute('data-specialty') === specialty;
+    const matchDispo = dispo === '' || card.getAttribute('data-dispo') === dispo;
+    if (matchName && matchSpecialty && matchDispo) { card.style.display = 'block'; visible++; }
+    else { card.style.display = 'none'; }
+  });
+  document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+}
+function resetFilters() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('filterSpecialty').value = '';
+  document.getElementById('filterDisponibility').value = '';
+  filterDoctors();
+}
+function openModal(id) { document.getElementById('modal-' + id).classList.add('active'); }
+function closeModal(id) { document.getElementById('modal-' + id).classList.remove('active'); }
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); });
+});
+function bookAppointment(name) {
+  alert('Redirection vers la prise de RDV avec ' + name + '...');
+  // window.location.href = 'patient_rdv.html';
+}
+</script>
+</body>
+</html>
