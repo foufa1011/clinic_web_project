@@ -1,271 +1,241 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mon Profil - HealthCare Clinic</title>
-<link rel="stylesheet" href="assets/css/style2.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil - Doctor Portal</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <div class="top-nav">
+            <h1>🏥 HealthCare Clinic - Doctor Portal</h1>
+            <ul class="nav-links">
+                <li><a href="doctor_rdv.html">📅 Rendez-vous</a></li>
+                <li><a href="doctor_patients.html">👥 Patients</a></li>
+                <li><a href="doctor_profil.html" class="active">👨‍⚕️ Mon Profil</a></li>
+                <li><button class="btn btn-danger" onclick="window.location.href='index.html'">Déconnexion</button></li>
+            </ul>
+        </div>
+    </header>
 
-<header>
-  <div class="top-nav">
-    <h1>🏥 HealthCare Clinic - Espace Médecin</h1>
-    <ul class="nav-links">
-      <li><a href="doctor_rdv.html">📅 Mes RDV</a></li>
-      <li><a href="doctor_patients.html">👥 Mes Patients</a></li>
-      <li><a href="doctor_profil.html" class="active">👤 Mon Profil</a></li>
-      <li><a href="index.html"><button class="btn btn-danger">Déconnexion</button></a></li>
-    </ul>
-  </div>
-</header>
+    <div class="content">
+        <!-- Profile Header -->
+        <div class="card" style="padding: 0; overflow: hidden;">
+            <div class="profile-header">
+                <div class="profile-avatar">👩‍⚕️</div>
+                <h2 style="margin-bottom: 10px;">Dr. Amira Ben Salem</h2>
+                <p style="font-size: 18px; opacity: 0.9;">Spécialiste en Cardiologie</p>
+            </div>
+            
+            <div class="profile-body">
+                <!-- Personal Information -->
+                <h3 style="color: #2c3e50; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #3498db;">
+                    📋 Informations Personnelles
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div class="info-group">
+                        <label>Nom Complet</label>
+                        <p>Dr. Amira Ben Salem</p>
+                    </div>
+                    
+                    <div class="info-group">
+                        <label>Spécialité</label>
+                        <p>Cardiologie</p>
+                    </div>
+                    
+                    <div class="info-group">
+                        <label>Email</label>
+                        <p>amira.bensalem@healthcareclinic.tn</p>
+                    </div>
+                    
+                    <div class="info-group">
+                        <label>Téléphone</label>
+                        <p>+216 71 123 456</p>
+                    </div>
+                    
+                    <div class="info-group">
+                        <label>Années d'Expérience</label>
+                        <p>15 ans</p>
+                    </div>
+                    
+                    <div class="info-group">
+                        <label>Numéro de Licence</label>
+                        <p>MD-TN-12345-2009</p>
+                    </div>
+                    
+                    <div class="info-group">
+                        <label>Date de Début</label>
+                        <p>15 Janvier 2009</p>
+                    </div>
+                    
+                    <div class="info-group">
+                        <label>Statut</label>
+                        <p class="status-ok">Actif</p>
+                    </div>
+                </div>
 
-<div class="content">
+                <!-- Bio Section -->
+                <h3 style="color: #2c3e50; margin: 30px 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #3498db;">
+                    📝 Biographie
+                </h3>
+                <p style="line-height: 1.8; color: #555;">
+                    Spécialiste en cardiologie préventive et gestion des maladies cardiaques avec plus de 15 ans d'expérience. 
+                    Diplômée de la Faculté de Médecine de Tunis avec une certification en hypertension et gestion du cholestérol. 
+                    Passionnée par la prévention cardiovasculaire et l'éducation des patients sur les modes de vie sains. 
+                    Membre actif de la Société Tunisienne de Cardiologie et régulièrement invitée à des conférences internationales.
+                </p>
 
-  <!-- Hero Profil -->
-  <div class="profile-hero">
-    <div class="profile-avatar-big">👨‍⚕️</div>
-    <div class="profile-hero-info">
-      <h2>Dr. Sarah Johnson</h2>
-      <span class="specialty-badge">Cardiologie</span>
-      <p style="margin-top:10px;">⏱ 15 ans d'expérience &nbsp;|&nbsp; 📍 Clinique HealthCare, Tunis</p>
-      <p>📞 +216 71 100 001 &nbsp;|&nbsp; 📧 s.johnson@healthcare-clinic.tn</p>
-      <div class="stars">⭐⭐⭐⭐⭐ 4.9/5 <span style="font-size:14px;opacity:0.8;">(234 avis patients)</span></div>
+                <!-- Qualifications -->
+                <h3 style="color: #2c3e50; margin: 30px 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #3498db;">
+                    🎓 Qualifications & Certifications
+                </h3>
+                <ul style="line-height: 2; color: #555; margin-left: 20px;">
+                    <li><strong>Doctorat en Médecine</strong> - Faculté de Médecine de Tunis, 2004</li>
+                    <li><strong>Spécialisation en Cardiologie</strong> - Hôpital La Rabta, 2009</li>
+                    <li><strong>Certification en Échocardiographie</strong> - 2010</li>
+                    <li><strong>Formation en Cardiologie Interventionnelle</strong> - Institut Pasteur de Tunis, 2012</li>
+                    <li><strong>Diplôme en Hypertension Artérielle</strong> - 2015</li>
+                </ul>
+
+                <!-- Statistics -->
+                <h3 style="color: #2c3e50; margin: 30px 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #3498db;">
+                    📊 Statistiques
+                </h3>
+                <div class="stats-grid">
+                    <div class="stat-card" style="background: #3498db;">
+                        <h3>Patients Traités</h3>
+                        <div class="number">2,847</div>
+                        <p>Total depuis 2009</p>
+                    </div>
+                    
+                    <div class="stat-card" style="background: #2ecc71;">
+                        <h3>Note Moyenne</h3>
+                        <div class="number">4.9</div>
+                        <p>⭐ Sur 234 avis</p>
+                    </div>
+                    
+                    <div class="stat-card" style="background: #9b59b6;">
+                        <h3>Consultations</h3>
+                        <div class="number">87</div>
+                        <p>Ce mois-ci</p>
+                    </div>
+                    
+                    <div class="stat-card" style="background: #f39c12;">
+                        <h3>Taux de Succès</h3>
+                        <div class="number">98%</div>
+                        <p>Satisfaction patients</p>
+                    </div>
+                </div>
+
+                <!-- Horaires -->
+                <h3 style="color: #2c3e50; margin: 30px 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #3498db;">
+                    ⏰ Horaires de Consultation
+                </h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Jour</th>
+                            <th>Horaires</th>
+                            <th>Statut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lundi</td>
+                            <td>09:00 - 17:00</td>
+                            <td><span class="status-ok">Disponible</span></td>
+                        </tr>
+                        <tr>
+                            <td>Mardi</td>
+                            <td>09:00 - 17:00</td>
+                            <td><span class="status-ok">Disponible</span></td>
+                        </tr>
+                        <tr>
+                            <td>Mercredi</td>
+                            <td>09:00 - 17:00</td>
+                            <td><span class="status-ok">Disponible</span></td>
+                        </tr>
+                        <tr>
+                            <td>Jeudi</td>
+                            <td>09:00 - 17:00</td>
+                            <td><span class="status-ok">Disponible</span></td>
+                        </tr>
+                        <tr>
+                            <td>Vendredi</td>
+                            <td>09:00 - 15:00</td>
+                            <td><span class="status-ok">Disponible</span></td>
+                        </tr>
+                        <tr>
+                            <td>Samedi</td>
+                            <td>-</td>
+                            <td><span class="status-low">Fermé</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dimanche</td>
+                            <td>-</td>
+                            <td><span class="status-low">Fermé</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Edit Button -->
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="btn btn-primary" onclick="alert('Fonctionnalité de modification à venir')">
+                        ✏️ Modifier Mon Profil
+                    </button>
+                    <button class="btn btn-warning" onclick="alert('Fonctionnalité de changement de mot de passe à venir')">
+                        🔒 Changer le Mot de Passe
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Reviews -->
+        <div class="card">
+            <h3 style="color: #2c3e50; margin-bottom: 20px;">⭐ Avis Récents des Patients</h3>
+            
+            <div style="background: #f8f9fa; padding: 15px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #f39c12;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <strong>Sihem Hamdi</strong>
+                    <span style="color: #f39c12;">⭐⭐⭐⭐⭐ 5/5</span>
+                </div>
+                <p style="color: #555;">
+                    "Excellente cardiologue ! Dr. Ben Salem a pris le temps d'écouter mes préoccupations et m'a expliqué 
+                    clairement mon traitement. Je me sens entre de bonnes mains."
+                </p>
+                <small style="color: #999;">Il y a 2 jours</small>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 15px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #f39c12;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <strong>Aymen Khalfallah</strong>
+                    <span style="color: #f39c12;">⭐⭐⭐⭐⭐ 5/5</span>
+                </div>
+                <p style="color: #555;">
+                    "Très professionnelle et à l'écoute. Les consultations sont toujours productives et je repars 
+                    avec toutes les réponses à mes questions."
+                </p>
+                <small style="color: #999;">Il y a 5 jours</small>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 15px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #f39c12;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <strong>Rim Essafi</strong>
+                    <span style="color: #f39c12;">⭐⭐⭐⭐⭐ 5/5</span>
+                </div>
+                <p style="color: #555;">
+                    "Je recommande vivement Dr. Ben Salem. Son expertise en prévention cardiovasculaire m'a aidé à 
+                    améliorer considérablement ma santé."
+                </p>
+                <small style="color: #999;">Il y a 1 semaine</small>
+            </div>
+        </div>
     </div>
-    <div style="margin-left:auto;">
-      <button class="btn btn-success" onclick="showTab('tab-edit')">✏️ Modifier le profil</button>
-    </div>
-  </div>
 
-  <!-- Stats rapides -->
-  <div class="stats-row">
-    <div class="mini-stat" style="border-top-color:#3498db;"><div class="number">287</div><p>Patients ce mois</p></div>
-    <div class="mini-stat" style="border-top-color:#2ecc71;"><div class="number">14</div><p>RDV cette semaine</p></div>
-    <div class="mini-stat" style="border-top-color:#9b59b6;"><div class="number">234</div><p>Avis reçus</p></div>
-    <div class="mini-stat" style="border-top-color:#f39c12;"><div class="number">98%</div><p>Taux de satisfaction</p></div>
-    <div class="mini-stat" style="border-top-color:#e74c3c;"><div class="number">3</div><p>RDV aujourd'hui</p></div>
-  </div>
-
-  <!-- Onglets -->
-  <div class="card">
-    <div class="tabs">
-      <button class="tab-btn active" onclick="showTab('tab-info')">📋 Informations</button>
-      <button class="tab-btn" onclick="showTab('tab-schedule')">🗓 Planning</button>
-      <button class="tab-btn" onclick="showTab('tab-consultations')">📊 Consultations récentes</button>
-      <button class="tab-btn" onclick="showTab('tab-reviews')">⭐ Avis patients</button>
-      <button class="tab-btn" onclick="showTab('tab-edit')">✏️ Modifier profil</button>
-    </div>
-
-    <!-- Onglet Informations -->
-    <div id="tab-info" class="tab-content active">
-      <h3 style="margin-bottom:15px; color:#2c3e50;">Informations professionnelles</h3>
-      <table>
-        <tr><th>Champ</th><th>Information</th></tr>
-        <tr><td><strong>Nom complet</strong></td><td>Dr. Sarah Johnson</td></tr>
-        <tr><td><strong>Spécialité</strong></td><td>Cardiologie</td></tr>
-        <tr><td><strong>Sous-spécialité</strong></td><td>Cardiologie préventive – Hypertension – Cholestérol</td></tr>
-        <tr><td><strong>N° Ordre des Médecins</strong></td><td>TN-CARD-2009-045</td></tr>
-        <tr><td><strong>Formation</strong></td><td>Faculté de Médecine de Tunis – Doctorat en Cardiologie (2009)</td></tr>
-        <tr><td><strong>Langues parlées</strong></td><td>Français, Arabe, Anglais</td></tr>
-        <tr><td><strong>Téléphone</strong></td><td>+216 71 100 001</td></tr>
-        <tr><td><strong>Email professionnel</strong></td><td>s.johnson@healthcare-clinic.tn</td></tr>
-        <tr><td><strong>Biographie</strong></td><td>Spécialisée en cardiologie préventive et gestion des maladies cardiaques. Experte reconnue en hypertension artérielle et gestion du cholestérol. Certifiée par le Conseil National de Cardiologie. Membre de la Société Tunisienne de Cardiologie.</td></tr>
-        <tr><td><strong>Statut</strong></td><td><span class="status-ok">✅ Actif</span></td></tr>
-      </table>
-    </div>
-
-    <!-- Onglet Planning -->
-    <div id="tab-schedule" class="tab-content">
-      <h3 style="margin-bottom:15px; color:#2c3e50;">Mes horaires de disponibilité</h3>
-      <p style="color:#666; margin-bottom:15px;">Activez/désactivez les jours et définissez vos horaires.</p>
-      <div class="schedule-grid">
-        <div class="day-slot">
-          <h4>Lundi</h4>
-          <div class="toggle on" onclick="toggleDay(this)"></div>
-          <select><option>08:00</option><option>09:00</option></select>
-          <select><option>16:00</option><option>17:00</option></select>
-        </div>
-        <div class="day-slot">
-          <h4>Mardi</h4>
-          <div class="toggle on" onclick="toggleDay(this)"></div>
-          <select><option>08:00</option><option>09:00</option></select>
-          <select><option>16:00</option><option>17:00</option></select>
-        </div>
-        <div class="day-slot">
-          <h4>Mercredi</h4>
-          <div class="toggle on" onclick="toggleDay(this)"></div>
-          <select><option>08:00</option><option>09:00</option></select>
-          <select><option>16:00</option><option>17:00</option></select>
-        </div>
-        <div class="day-slot">
-          <h4>Jeudi</h4>
-          <div class="toggle on" onclick="toggleDay(this)"></div>
-          <select><option>08:00</option><option>09:00</option></select>
-          <select><option>16:00</option><option>17:00</option></select>
-        </div>
-        <div class="day-slot">
-          <h4>Vendredi</h4>
-          <div class="toggle on" onclick="toggleDay(this)"></div>
-          <select><option>08:00</option><option>09:00</option></select>
-          <select><option>16:00</option><option>17:00</option></select>
-        </div>
-        <div class="day-slot">
-          <h4>Samedi</h4>
-          <div class="toggle" onclick="toggleDay(this)"></div>
-          <select style="opacity:0.4;" disabled><option>09:00</option></select>
-          <select style="opacity:0.4;" disabled><option>13:00</option></select>
-        </div>
-        <div class="day-slot">
-          <h4>Dimanche</h4>
-          <div class="toggle" onclick="toggleDay(this)"></div>
-          <select style="opacity:0.4;" disabled><option>--</option></select>
-          <select style="opacity:0.4;" disabled><option>--</option></select>
-        </div>
-      </div>
-      <div id="schedule-success" class="alert-success">✅ Planning mis à jour avec succès !</div>
-      <button class="btn btn-success" onclick="savePlanning()">💾 Enregistrer le planning</button>
-    </div>
-
-    <!-- Onglet Consultations -->
-    <div id="tab-consultations" class="tab-content">
-      <h3 style="margin-bottom:15px; color:#2c3e50;">Consultations récentes</h3>
-      <table>
-        <tr><th>Date</th><th>Patient</th><th>Motif</th><th>Durée</th><th>Statut</th><th>Actions</th></tr>
-        <tr><td>13 Fév 2024</td><td>Mohamed Ben Ali</td><td>Contrôle tension artérielle</td><td>30 min</td><td><span class="status-ok">Terminé</span></td><td><button class="btn btn-primary">Voir dossier</button></td></tr>
-        <tr><td>13 Fév 2024</td><td>Fatma Khelifi</td><td>Bilan cardiaque</td><td>45 min</td><td><span class="status-ok">Terminé</span></td><td><button class="btn btn-primary">Voir dossier</button></td></tr>
-        <tr><td>12 Fév 2024</td><td>Youssef Gharbi</td><td>Consultation post-op</td><td>20 min</td><td><span class="status-ok">Terminé</span></td><td><button class="btn btn-primary">Voir dossier</button></td></tr>
-        <tr><td>12 Fév 2024</td><td>Nour Jebali</td><td>Douleurs thoraciques</td><td>40 min</td><td><span class="status-ok">Terminé</span></td><td><button class="btn btn-primary">Voir dossier</button></td></tr>
-        <tr><td>14 Fév 2024</td><td>Sami Ouled</td><td>Contrôle cholestérol</td><td>25 min</td><td><span class="status-pending">À venir</span></td><td><button class="btn btn-warning">Préparer</button></td></tr>
-      </table>
-    </div>
-
-    <!-- Onglet Avis -->
-    <div id="tab-reviews" class="tab-content">
-      <h3 style="margin-bottom:5px; color:#2c3e50;">Avis des patients</h3>
-      <p style="color:#666; margin-bottom:20px;">Note globale : <strong style="color:#f39c12;">⭐ 4.9/5</strong> — basée sur 234 avis</p>
-      <div class="review-card">
-        <div style="display:flex; justify-content:space-between;">
-          <span class="reviewer">Mohamed B.</span>
-          <span class="review-stars">⭐⭐⭐⭐⭐</span>
-        </div>
-        <div class="review-text">Docteure très compétente et à l'écoute. Elle a bien expliqué mon état de santé et les traitements à suivre. Je recommande vivement.</div>
-        <div class="review-date">13 Février 2024</div>
-      </div>
-      <div class="review-card">
-        <div style="display:flex; justify-content:space-between;">
-          <span class="reviewer">Fatma K.</span>
-          <span class="review-stars">⭐⭐⭐⭐⭐</span>
-        </div>
-        <div class="review-text">Excellente consultation, très professionnelle. Le diagnostic était précis et le suivi est impeccable.</div>
-        <div class="review-date">12 Février 2024</div>
-      </div>
-      <div class="review-card">
-        <div style="display:flex; justify-content:space-between;">
-          <span class="reviewer">Youssef G.</span>
-          <span class="review-stars">⭐⭐⭐⭐⭐</span>
-        </div>
-        <div class="review-text">Dr. Johnson est une cardiologue exceptionnelle. Elle prend le temps d'expliquer et rassure vraiment ses patients.</div>
-        <div class="review-date">12 Février 2024</div>
-      </div>
-      <div class="review-card" style="border-left-color:#f39c12;">
-        <div style="display:flex; justify-content:space-between;">
-          <span class="reviewer">Leila M.</span>
-          <span class="review-stars">⭐⭐⭐⭐</span>
-        </div>
-        <div class="review-text">Bonne consultation, attente un peu longue mais le service était de qualité.</div>
-        <div class="review-date">10 Février 2024</div>
-      </div>
-    </div>
-
-    <!-- Onglet Édition -->
-    <div id="tab-edit" class="tab-content">
-      <h3 style="margin-bottom:5px; color:#2c3e50;">✏️ Modifier mes informations</h3>
-      <p style="color:#666; margin-bottom:20px;">Les modifications seront soumises à validation par l'administrateur.</p>
-      <div id="edit-success" class="alert-success">✅ Vos informations ont été mises à jour avec succès !</div>
-      <div class="form-grid">
-        <div class="form-group">
-          <label>Prénom</label>
-          <input type="text" value="Sarah">
-        </div>
-        <div class="form-group">
-          <label>Nom</label>
-          <input type="text" value="Johnson">
-        </div>
-        <div class="form-group">
-          <label>Spécialité</label>
-          <select>
-            <option selected>Cardiologie</option>
-            <option>Pédiatrie</option>
-            <option>Dermatologie</option>
-            <option>Neurologie</option>
-            <option>Gynécologie</option>
-            <option>Orthopédie</option>
-            <option>Médecine Générale</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>N° Ordre des Médecins</label>
-          <input type="text" value="TN-CARD-2009-045">
-        </div>
-        <div class="form-group">
-          <label>Téléphone</label>
-          <input type="tel" value="+216 71 100 001">
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" value="s.johnson@healthcare-clinic.tn">
-        </div>
-        <div class="form-group">
-          <label>Langues parlées</label>
-          <input type="text" value="Français, Arabe, Anglais">
-        </div>
-        <div class="form-group">
-          <label>Années d'expérience</label>
-          <input type="number" value="15">
-        </div>
-      </div>
-      <label>Biographie professionnelle</label>
-      <textarea rows="4">Spécialisée en cardiologie préventive et gestion des maladies cardiaques. Experte reconnue en hypertension artérielle et gestion du cholestérol. Certifiée par le Conseil National de Cardiologie.</textarea>
-      <label>Sous-spécialités / Compétences</label>
-      <input type="text" value="Cardiologie préventive, Hypertension, Cholestérol, Électrocardiographie">
-      <div style="margin-top:20px;">
-        <button class="btn btn-success" onclick="saveProfile()">💾 Enregistrer les modifications</button>
-        <button class="btn btn-warning" onclick="showTab('tab-info')">✕ Annuler</button>
-      </div>
-    </div>
-
-  </div><!-- end card -->
-</div><!-- end content -->
-
-<footer><p>&copy; 2024 HealthCare Clinic | Profil Médecin — Module Safa</p></footer>
-
-<script>
-function showTab(id) {
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  const idx = ['tab-info','tab-schedule','tab-consultations','tab-reviews','tab-edit'].indexOf(id);
-  document.querySelectorAll('.tab-btn')[idx].classList.add('active');
-}
-
-function toggleDay(el) {
-  el.classList.toggle('on');
-  const selects = el.parentElement.querySelectorAll('select');
-  const disabled = !el.classList.contains('on');
-  selects.forEach(s => { s.disabled = disabled; s.style.opacity = disabled ? '0.4' : '1'; });
-}
-
-function savePlanning() {
-  const msg = document.getElementById('schedule-success');
-  msg.style.display = 'block';
-  setTimeout(() => msg.style.display = 'none', 3000);
-}
-
-function saveProfile() {
-  const msg = document.getElementById('edit-success');
-  msg.style.display = 'block';
-  setTimeout(() => { msg.style.display = 'none'; showTab('tab-info'); }, 2500);
-}
-</script>
+    <footer>
+        <p>&copy; 2024 HealthCare Clinic - Tous droits réservés</p>
+    </footer>
 </body>
 </html>
