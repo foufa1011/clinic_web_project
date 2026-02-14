@@ -1,490 +1,359 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gestion des Médecins - Admin | HealthCare Clinic</title>
-<link rel="stylesheet" href="assets/css/style2.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Médecins - Admin Portal</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <div class="top-nav">
+            <h1>🏥 HealthCare Clinic - Admin Portal</h1>
+            <ul class="nav-links">
+                <li><a href="admin_rdv.html">📅 Rendez-vous</a></li>
+                <li><a href="admin_upload.html">📤 Upload</a></li>
+                <li><a href="admin_medecins.html" class="active">👨‍⚕️ Médecins</a></li>
+                <li><a href="inventaire.html">💊 Inventaire</a></li>
+                <li><a href="admin_blog_editor.html">📰 Blog</a></li>
+                <li><a href="admin_revenus.html">💰 Revenus</a></li>
+                <li><button class="btn btn-danger" onclick="window.location.href='index.html'">Déconnexion</button></li>
+            </ul>
+        </div>
+    </header>
 
-<header>
-  <div class="top-nav">
-    <h1> HealthCare Clinic - Espace Admin</h1>
-    <ul class="nav-links">
-      <li><a href="admin_rdv.html"> RDV</a></li>
-      <li><a href="admin_upload.html"> Dossiers</a></li>
-      <li><a href="admin_medecins.html" class="active"> Médecins</a></li>
-      <li><a href="inventaire.html"> Pharmacie</a></li>
-      <li><a href="admin_blog_editor.html"> Blog</a></li>
-      <li><a href="admin_revenus.html"> Revenus</a></li>
-      <li><a href="index.html"><button class="btn btn-danger">Déconnexion</button></a></li>
-    </ul>
-  </div>
-</header>
+    <div class="content">
+        <!-- Page Title -->
+        <div class="card">
+            <h2>👨‍⚕️ Gestion des Médecins</h2>
+            <p>Gérez les profils des médecins : ajouter, modifier ou supprimer des praticiens.</p>
+        </div>
 
-<div class="content">
+        <!-- Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card" style="background: #3498db;">
+                <h3>Total Médecins</h3>
+                <div class="number">8</div>
+                <p>Praticiens actifs</p>
+            </div>
+            
+            <div class="stat-card" style="background: #2ecc71;">
+                <h3>Spécialités</h3>
+                <div class="number">7</div>
+                <p>Différentes spécialités</p>
+            </div>
+            
+            <div class="stat-card" style="background: #9b59b6;">
+                <h3>Note Moyenne</h3>
+                <div class="number">4.8</div>
+                <p>⭐ Satisfaction globale</p>
+            </div>
+            
+            <div class="stat-card" style="background: #f39c12;">
+                <h3>Nouveaux ce mois</h3>
+                <div class="number">2</div>
+                <p>Recrutements récents</p>
+            </div>
+        </div>
 
-  <div class="card">
-    <h2> Gestion des Médecins &amp; Infirmiers</h2>
-    <p style="color:#666; margin-top:5px;">Ajout, modification, suppression et suivi de tout le personnel médical.</p>
-  </div>
+        <!-- Add Doctor Button -->
+        <div class="card">
+            <button class="btn btn-success" onclick="showAddForm()">+ Ajouter un Nouveau Médecin</button>
+        </div>
 
-  <!-- Stats -->
-  <div class="grid">
-    <div class="stat-card" style="background:#3498db;"><h3>Total Personnel</h3><div class="number">17</div><p>Médecins + Infirmiers</p></div>
-    <div class="stat-card" style="background:#2ecc71;"><h3>Actifs</h3><div class="number">15</div><p>En service</p></div>
-    <div class="stat-card" style="background:#e74c3c;"><h3>Inactifs</h3><div class="number">2</div><p>Congé / Absent</p></div>
-    <div class="stat-card" style="background:#9b59b6;"><h3>Spécialités</h3><div class="number">7</div><p>Couvertes</p></div>
-    <div class="stat-card" style="background:#f39c12;"><h3>Infirmiers</h3><div class="number">5</div><p>En poste</p></div>
-  </div>
+        <!-- Add Doctor Form (Hidden by default) -->
+        <div class="card" id="addDoctorForm" style="display: none;">
+            <h3 style="color: #2c3e50; margin-bottom: 20px;">➕ Ajouter un Nouveau Médecin</h3>
+            <form onsubmit="addDoctor(event)">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div>
+                        <label for="doctorName">Nom Complet *</label>
+                        <input type="text" id="doctorName" required placeholder="Ex: Dr. Ahmed Gharbi">
+                    </div>
+                    
+                    <div>
+                        <label for="specialty">Spécialité *</label>
+                        <select id="specialty" required>
+                            <option value="">Choisir une spécialité</option>
+                            <option value="Cardiologie">Cardiologie</option>
+                            <option value="Pédiatrie">Pédiatrie</option>
+                            <option value="Dermatologie">Dermatologie</option>
+                            <option value="Orthopédie">Orthopédie</option>
+                            <option value="Neurologie">Neurologie</option>
+                            <option value="Gynécologie">Gynécologie</option>
+                            <option value="Ophtalmologie">Ophtalmologie</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" required placeholder="email@healthcareclinic.tn">
+                    </div>
+                    
+                    <div>
+                        <label for="phone">Téléphone *</label>
+                        <input type="tel" id="phone" required placeholder="+216 71 123 456">
+                    </div>
+                    
+                    <div>
+                        <label for="experience">Années d'Expérience *</label>
+                        <input type="number" id="experience" required min="0" max="50" placeholder="Ex: 10">
+                    </div>
+                    
+                    <div>
+                        <label for="license">Numéro de Licence *</label>
+                        <input type="text" id="license" required placeholder="Ex: MD-TN-12345-2010">
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <label for="bio">Biographie</label>
+                    <textarea id="bio" rows="4" placeholder="Décrivez l'expertise et les qualifications du médecin..."></textarea>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-success">💾 Enregistrer</button>
+                    <button type="button" class="btn btn-danger" onclick="hideAddForm()">✖ Annuler</button>
+                </div>
+            </form>
+        </div>
 
-  <!-- Alerte succès / erreur (dynamiques) -->
-  <div id="alert-success" class="alert-success">✅ Opération réalisée avec succès !</div>
-  <div id="alert-danger" class="alert-danger">❌ Une erreur est survenue. Veuillez réessayer.</div>
-
-  <!-- Tableau médecins -->
-  <div class="card">
-    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
-      <h3>Liste du personnel médical</h3>
-      <button class="btn btn-success" onclick="openAddModal()">+ Ajouter un médecin / infirmier</button>
+        <!-- Doctors Table -->
+        <div class="card">
+            <h3 style="color: #2c3e50; margin-bottom: 20px;">📋 Liste des Médecins</h3>
+            <table id="doctorsTable">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Spécialité</th>
+                        <th>Email</th>
+                        <th>Téléphone</th>
+                        <th>Expérience</th>
+                        <th>Note</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dr. Amira Ben Salem</td>
+                        <td>Cardiologie</td>
+                        <td>amira.bensalem@healthcareclinic.tn</td>
+                        <td>+216 71 123 456</td>
+                        <td>15 ans</td>
+                        <td>⭐ 4.9</td>
+                        <td><span class="status-ok">Actif</span></td>
+                        <td>
+                            <button class="btn btn-primary" onclick="editDoctor(1)">✏️ Modifier</button>
+                            <button class="btn btn-danger" onclick="deleteDoctor(1, 'Dr. Amira Ben Salem')">🗑️ Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Karim Trabelsi</td>
+                        <td>Pédiatrie</td>
+                        <td>karim.trabelsi@healthcareclinic.tn</td>
+                        <td>+216 71 234 567</td>
+                        <td>10 ans</td>
+                        <td>⭐ 4.8</td>
+                        <td><span class="status-ok">Actif</span></td>
+                        <td>
+                            <button class="btn btn-primary" onclick="editDoctor(2)">✏️ Modifier</button>
+                            <button class="btn btn-danger" onclick="deleteDoctor(2, 'Dr. Karim Trabelsi')">🗑️ Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Leila Mahjoub</td>
+                        <td>Dermatologie</td>
+                        <td>leila.mahjoub@healthcareclinic.tn</td>
+                        <td>+216 71 345 678</td>
+                        <td>12 ans</td>
+                        <td>⭐ 4.9</td>
+                        <td><span class="status-ok">Actif</span></td>
+                        <td>
+                            <button class="btn btn-primary" onclick="editDoctor(3)">✏️ Modifier</button>
+                            <button class="btn btn-danger" onclick="deleteDoctor(3, 'Dr. Leila Mahjoub')">🗑️ Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Mehdi Gharbi</td>
+                        <td>Orthopédie</td>
+                        <td>mehdi.gharbi@healthcareclinic.tn</td>
+                        <td>+216 71 456 789</td>
+                        <td>18 ans</td>
+                        <td>⭐ 4.7</td>
+                        <td><span class="status-ok">Actif</span></td>
+                        <td>
+                            <button class="btn btn-primary" onclick="editDoctor(4)">✏️ Modifier</button>
+                            <button class="btn btn-danger" onclick="deleteDoctor(4, 'Dr. Mehdi Gharbi')">🗑️ Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Salma Bouazizi</td>
+                        <td>Neurologie</td>
+                        <td>salma.bouazizi@healthcareclinic.tn</td>
+                        <td>+216 71 567 890</td>
+                        <td>14 ans</td>
+                        <td>⭐ 4.9</td>
+                        <td><span class="status-ok">Actif</span></td>
+                        <td>
+                            <button class="btn btn-primary" onclick="editDoctor(5)">✏️ Modifier</button>
+                            <button class="btn btn-danger" onclick="deleteDoctor(5, 'Dr. Salma Bouazizi')">🗑️ Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Nadia Hammami</td>
+                        <td>Gynécologie</td>
+                        <td>nadia.hammami@healthcareclinic.tn</td>
+                        <td>+216 71 678 901</td>
+                        <td>16 ans</td>
+                        <td>⭐ 4.8</td>
+                        <td><span class="status-ok">Actif</span></td>
+                        <td>
+                            <button class="btn btn-primary" onclick="editDoctor(6)">✏️ Modifier</button>
+                            <button class="btn btn-danger" onclick="deleteDoctor(6, 'Dr. Nadia Hammami')">🗑️ Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Riadh Khelifi</td>
+                        <td>Ophtalmologie</td>
+                        <td>riadh.khelifi@healthcareclinic.tn</td>
+                        <td>+216 71 789 012</td>
+                        <td>11 ans</td>
+                        <td>⭐ 4.8</td>
+                        <td><span class="status-ok">Actif</span></td>
+                        <td>
+                            <button class="btn btn-primary" onclick="editDoctor(7)">✏️ Modifier</button>
+                            <button class="btn btn-danger" onclick="deleteDoctor(7, 'Dr. Riadh Khelifi')">🗑️ Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Henda Jlassi</td>
+                        <td>Cardiologie</td>
+                        <td>henda.jlassi@healthcareclinic.tn</td>
+                        <td>+216 71 890 123</td>
+                        <td>13 ans</td>
+                        <td>⭐ 4.9</td>
+                        <td><span class="status-ok">Actif</span></td>
+                        <td>
+                            <button class="btn btn-primary" onclick="editDoctor(8)">✏️ Modifier</button>
+                            <button class="btn btn-danger" onclick="deleteDoctor(8, 'Dr. Henda Jlassi')">🗑️ Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <div class="toolbar" style="margin-top:15px;">
-      <input type="text" id="searchAdmin" placeholder="Rechercher par nom..." oninput="filterTable()">
-      <select id="filterSpec" onchange="filterTable()">
-        <option value="">Toutes les spécialités</option>
-        <option>Cardiologie</option>
-        <option>Pédiatrie</option>
-        <option>Dermatologie</option>
-        <option>Neurologie</option>
-        <option>Orthopédie</option>
-        <option>Gynécologie</option>
-        <option>Médecine Générale</option>
-        <option>Infirmier(ère)</option>
-      </select>
-      <select id="filterStatus" onchange="filterTable()">
-        <option value="">Tous les statuts</option>
-        <option value="Actif">Actif</option>
-        <option value="Inactif">Inactif</option>
-      </select>
-    </div>
+    <footer>
+        <p>&copy; 2024 HealthCare Clinic - Tous droits réservés</p>
+    </footer>
 
-    <table id="doctorsTable">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Nom</th>
-          <th>Spécialité</th>
-          <th>Email</th>
-          <th>Téléphone</th>
-          <th>Expérience</th>
-          <th>Statut</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="doctorsBody">
-        <tr data-name="sarah johnson" data-spec="Cardiologie" data-status="Actif">
-          <td>1</td>
-          <td><div class="doc-avatar" style="background:#3498db;">👨‍⚕️</div>Dr. Sarah Jelloul </td>
-          <td><span class="specialty-badge" style="background:#3498db;">Cardiologie</span></td>
-          <td>s.johnson@healthcare-clinic.tn</td>
-          <td>+216 71 100 001</td>
-          <td>15 ans</td>
-          <td><span class="status-ok">✅ Actif</span></td>
-          <td>
-            <button class="btn btn-primary btn-sm" onclick="openEditModal(1)">✏️ Modifier</button>
-            <button class="btn btn-warning btn-sm" onclick="toggleStatus(this)">⏸ Désactiver</button>
-            <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">🗑 Supprimer</button>
-          </td>
-        </tr>
-        <tr data-name="michael chen" data-spec="Pédiatrie" data-status="Actif">
-          <td>2</td>
-          <td><div class="doc-avatar" style="background:#2ecc71;">👨‍⚕️</div>Dr. Majed Cherif </td>
-          <td><span class="specialty-badge" style="background:#2ecc71;">Pédiatrie</span></td>
-          <td>m.chen@healthcare-clinic.tn</td>
-          <td>+216 71 100 002</td>
-          <td>10 ans</td>
-          <td><span class="status-ok">✅ Actif</span></td>
-          <td>
-            <button class="btn btn-primary btn-sm" onclick="openEditModal(2)">✏️ Modifier</button>
-            <button class="btn btn-warning btn-sm" onclick="toggleStatus(this)">⏸ Désactiver</button>
-            <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">🗑 Supprimer</button>
-          </td>
-        </tr>
-        <tr data-name="amira belhaj" data-spec="Dermatologie" data-status="Actif">
-          <td>3</td>
-          <td><div class="doc-avatar" style="background:#e67e22;">👩‍⚕️</div>Dr. Amira Belhaj</td>
-          <td><span class="specialty-badge" style="background:#e67e22;">Dermatologie</span></td>
-          <td>a.belhaj@healthcare-clinic.tn</td>
-          <td>+216 71 100 003</td>
-          <td>8 ans</td>
-          <td><span class="status-ok">✅ Actif</span></td>
-          <td>
-            <button class="btn btn-primary btn-sm" onclick="openEditModal(3)">✏️ Modifier</button>
-            <button class="btn btn-warning btn-sm" onclick="toggleStatus(this)">⏸ Désactiver</button>
-            <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">🗑 Supprimer</button>
-          </td>
-        </tr>
-        <tr data-name="karim mansour" data-spec="Neurologie" data-status="Inactif">
-          <td>4</td>
-          <td><div class="doc-avatar" style="background:#9b59b6;">👨‍⚕️</div>Dr. Karim Mansour</td>
-          <td><span class="specialty-badge" style="background:#9b59b6;">Neurologie</span></td>
-          <td>k.mansour@healthcare-clinic.tn</td>
-          <td>+216 71 100 004</td>
-          <td>20 ans</td>
-          <td><span class="status-low">❌ Inactif</span></td>
-          <td>
-            <button class="btn btn-primary btn-sm" onclick="openEditModal(4)">✏️ Modifier</button>
-            <button class="btn btn-success btn-sm" onclick="toggleStatus(this)">▶ Activer</button>
-            <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">🗑 Supprimer</button>
-          </td>
-        </tr>
-        <tr data-name="nadia trabelsi" data-spec="Gynécologie" data-status="Actif">
-          <td>5</td>
-          <td><div class="doc-avatar" style="background:#e91e8c;">👩‍⚕️</div>Dr. Nadia Trabelsi</td>
-          <td><span class="specialty-badge" style="background:#e91e8c;">Gynécologie</span></td>
-          <td>n.trabelsi@healthcare-clinic.tn</td>
-          <td>+216 71 100 005</td>
-          <td>12 ans</td>
-          <td><span class="status-ok">✅ Actif</span></td>
-          <td>
-            <button class="btn btn-primary btn-sm" onclick="openEditModal(5)">✏️ Modifier</button>
-            <button class="btn btn-warning btn-sm" onclick="toggleStatus(this)">⏸ Désactiver</button>
-            <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">🗑 Supprimer</button>
-          </td>
-        </tr>
-        <tr data-name="ali hamdi" data-spec="Orthopédie" data-status="Actif">
-          <td>6</td>
-          <td><div class="doc-avatar" style="background:#1abc9c;">👨‍⚕️</div>Dr. Ali Hamdi</td>
-          <td><span class="specialty-badge" style="background:#1abc9c;">Orthopédie</span></td>
-          <td>a.hamdi@healthcare-clinic.tn</td>
-          <td>+216 71 100 006</td>
-          <td>7 ans</td>
-          <td><span class="status-ok">✅ Actif</span></td>
-          <td>
-            <button class="btn btn-primary btn-sm" onclick="openEditModal(6)">✏️ Modifier</button>
-            <button class="btn btn-warning btn-sm" onclick="toggleStatus(this)">⏸ Désactiver</button>
-            <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">🗑 Supprimer</button>
-          </td>
-        </tr>
-        <tr data-name="leila ben amor" data-spec="Médecine Générale" data-status="Actif">
-          <td>7</td>
-          <td><div class="doc-avatar" style="background:#c0392b;">👩‍⚕️</div>Dr. Leila Ben Amor</td>
-          <td><span class="specialty-badge" style="background:#c0392b;">Médecine Générale</span></td>
-          <td>l.benamor@healthcare-clinic.tn</td>
-          <td>+216 71 100 007</td>
-          <td>18 ans</td>
-          <td><span class="status-ok">✅ Actif</span></td>
-          <td>
-            <button class="btn btn-primary btn-sm" onclick="openEditModal(7)">✏️ Modifier</button>
-            <button class="btn btn-warning btn-sm" onclick="toggleStatus(this)">⏸ Désactiver</button>
-            <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">🗑 Supprimer</button>
-          </td>
-        </tr>
-        <tr data-name="sonia mejri" data-spec="Infirmier(ère)" data-status="Actif">
-          <td>8</td>
-          <td><div class="doc-avatar" style="background:#34495e;">👩‍⚕️</div>Sonia Mejri</td>
-          <td><span class="specialty-badge" style="background:#34495e;">Infirmière</span></td>
-          <td>s.mejri@healthcare-clinic.tn</td>
-          <td>+216 71 100 010</td>
-          <td>6 ans</td>
-          <td><span class="status-ok">✅ Actif</span></td>
-          <td>
-            <button class="btn btn-primary btn-sm" onclick="openEditModal(8)">✏️ Modifier</button>
-            <button class="btn btn-warning btn-sm" onclick="toggleStatus(this)">⏸ Désactiver</button>
-            <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">🗑 Supprimer</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <p id="noAdminResults" style="text-align:center;color:#999;padding:20px;display:none;"> Aucun résultat trouvé.</p>
-  </div>
+    <script>
+        // Show add doctor form
+        function showAddForm() {
+            document.getElementById('addDoctorForm').style.display = 'block';
+            document.getElementById('addDoctorForm').scrollIntoView({ behavior: 'smooth' });
+        }
 
-</div><!-- end content -->
+        // Hide add doctor form
+        function hideAddForm() {
+            document.getElementById('addDoctorForm').style.display = 'none';
+            document.getElementById('addDoctorForm').querySelector('form').reset();
+        }
 
-<!-- ===== MODAL AJOUT ===== -->
-<div class="modal-overlay" id="modal-add">
-  <div class="modal">
-    <div class="modal-header">
-      <h2>➕ Ajouter un médecin / infirmier</h2>
-      <button class="close-btn" onclick="closeModal('add')">✕</button>
-    </div>
-    <div class="modal-body">
-      <div id="add-success" class="alert-success">✅ Médecin ajouté avec succès !</div>
-      <div class="form-grid-2">
-        <div class="form-group">
-          <label>Prénom *</label>
-          <input type="text" id="add-prenom" placeholder="ex: Sarah">
-        </div>
-        <div class="form-group">
-          <label>Nom *</label>
-          <input type="text" id="add-nom" placeholder="ex: Johnson">
-        </div>
-        <div class="form-group">
-          <label>Rôle *</label>
-          <select id="add-role">
-            <option value="Médecin">Médecin</option>
-            <option value="Infirmier(ère)">Infirmier(ère)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Spécialité *</label>
-          <select id="add-spec">
-            <option>Cardiologie</option>
-            <option>Pédiatrie</option>
-            <option>Dermatologie</option>
-            <option>Neurologie</option>
-            <option>Orthopédie</option>
-            <option>Gynécologie</option>
-            <option>Médecine Générale</option>
-            <option>Infirmier(ère)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Email professionnel *</label>
-          <input type="email" id="add-email" placeholder="ex: nom@healthcare-clinic.tn">
-        </div>
-        <div class="form-group">
-          <label>Téléphone *</label>
-          <input type="tel" id="add-tel" placeholder="+216 XX XXX XXX">
-        </div>
-        <div class="form-group">
-          <label>N° Ordre des Médecins</label>
-          <input type="text" id="add-ordre" placeholder="ex: TN-CARD-2024-099">
-        </div>
-        <div class="form-group">
-          <label>Années d'expérience</label>
-          <input type="number" id="add-exp" placeholder="ex: 5" min="0">
-        </div>
-      </div>
-      <label>Langues parlées</label>
-      <input type="text" id="add-langues" placeholder="ex: Français, Arabe">
-      <label>Biographie</label>
-      <textarea id="add-bio" rows="3" placeholder="Courte description professionnelle..."></textarea>
-      <label>Horaires de disponibilité</label>
-      <input type="text" id="add-horaires" placeholder="ex: Lun–Ven : 08h00 – 16h00">
-      <div style="margin-top:20px;">
-        <button class="btn btn-success" onclick="addDoctor()">💾 Ajouter</button>
-        <button class="btn btn-warning" onclick="closeModal('add')">✕ Annuler</button>
-      </div>
-    </div>
-  </div>
-</div>
+        // Add new doctor
+        function addDoctor(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('doctorName').value;
+            const specialty = document.getElementById('specialty').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const experience = document.getElementById('experience').value;
+            const license = document.getElementById('license').value;
+            const bio = document.getElementById('bio').value;
+            
+            // Create new table row
+            const table = document.getElementById('doctorsTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow(0);
+            
+            newRow.innerHTML = `
+                <td>${name}</td>
+                <td>${specialty}</td>
+                <td>${email}</td>
+                <td>${phone}</td>
+                <td>${experience} ans</td>
+                <td>⭐ -</td>
+                <td><span class="status-ok">Actif</span></td>
+                <td>
+                    <button class="btn btn-primary" onclick="editDoctor(0)">✏️ Modifier</button>
+                    <button class="btn btn-danger" onclick="deleteDoctor(0, '${name}')">🗑️ Supprimer</button>
+                </td>
+            `;
+            
+            // Show success message
+            alert(`✅ ${name} a été ajouté avec succès !`);
+            
+            // Reset and hide form
+            hideAddForm();
+            
+            // Update statistics
+            updateStats();
+        }
 
-<!-- ===== MODAL MODIFICATION ===== -->
-<div class="modal-overlay" id="modal-edit">
-  <div class="modal">
-    <div class="modal-header">
-      <h2>✏️ Modifier les informations</h2>
-      <button class="close-btn" onclick="closeModal('edit')">✕</button>
-    </div>
-    <div class="modal-body">
-      <div id="edit-success" class="alert-success">✅ Informations modifiées avec succès !</div>
-      <div class="form-grid-2">
-        <div class="form-group">
-          <label>Prénom</label>
-          <input type="text" id="edit-prenom" value="Sarah">
-        </div>
-        <div class="form-group">
-          <label>Nom</label>
-          <input type="text" id="edit-nom" value="Johnson">
-        </div>
-        <div class="form-group">
-          <label>Spécialité</label>
-          <select id="edit-spec">
-            <option selected>Cardiologie</option>
-            <option>Pédiatrie</option>
-            <option>Dermatologie</option>
-            <option>Neurologie</option>
-            <option>Orthopédie</option>
-            <option>Gynécologie</option>
-            <option>Médecine Générale</option>
-            <option>Infirmier(ère)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Statut</label>
-          <select id="edit-status">
-            <option value="Actif" selected>Actif</option>
-            <option value="Inactif">Inactif</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" id="edit-email" value="s.johnson@healthcare-clinic.tn">
-        </div>
-        <div class="form-group">
-          <label>Téléphone</label>
-          <input type="tel" id="edit-tel" value="+216 71 100 001">
-        </div>
-        <div class="form-group">
-          <label>N° Ordre</label>
-          <input type="text" id="edit-ordre" value="TN-CARD-2009-045">
-        </div>
-        <div class="form-group">
-          <label>Expérience (années)</label>
-          <input type="number" id="edit-exp" value="15">
-        </div>
-      </div>
-      <label>Langues</label>
-      <input type="text" id="edit-langues" value="Français, Arabe, Anglais">
-      <label>Biographie</label>
-      <textarea id="edit-bio" rows="3">Spécialisée en cardiologie préventive et gestion des maladies cardiaques.</textarea>
-      <label>Horaires</label>
-      <input type="text" id="edit-horaires" value="Lun – Ven : 08h00 – 16h00">
-      <div style="margin-top:20px;">
-        <button class="btn btn-success" onclick="saveEdit()">💾 Enregistrer</button>
-        <button class="btn btn-warning" onclick="closeModal('edit')">✕ Annuler</button>
-      </div>
-    </div>
-  </div>
-</div>
+        // Edit doctor
+        function editDoctor(id) {
+            alert(`Modification du médecin ID: ${id}\n\nCette fonctionnalité sera implémentée avec JavaScript avancé ou backend.`);
+        }
 
-<!-- ===== MODAL CONFIRMATION SUPPRESSION ===== -->
-<div class="modal-overlay" id="modal-confirm">
-  <div class="modal" style="max-width:420px;">
-    <div class="modal-header" style="background:#e74c3c;">
-      <h2>🗑 Confirmer la suppression</h2>
-      <button class="close-btn" onclick="closeModal('confirm')">✕</button>
-    </div>
-    <div class="modal-body" style="text-align:center;">
-      <p style="font-size:48px; margin:15px 0;">⚠️</p>
-      <p style="font-size:16px; margin-bottom:20px;">Êtes-vous sûr de vouloir supprimer ce médecin ? Cette action est <strong>irréversible</strong>.</p>
-      <button class="btn btn-danger" onclick="confirmDelete()">🗑 Oui, supprimer</button>
-      <button class="btn btn-primary" onclick="closeModal('confirm')">✕ Annuler</button>
-    </div>
-  </div>
-</div>
+        // Delete doctor
+        function deleteDoctor(id, name) {
+            if (confirm(`⚠️ Êtes-vous sûr de vouloir supprimer ${name} ?\n\nCette action est irréversible.`)) {
+                // Find and remove the row
+                const table = document.getElementById('doctorsTable').getElementsByTagName('tbody')[0];
+                const rows = table.getElementsByTagName('tr');
+                
+                for (let i = 0; i < rows.length; i++) {
+                    if (rows[i].cells[0].textContent === name) {
+                        rows[i].remove();
+                        alert(`✅ ${name} a été supprimé avec succès.`);
+                        updateStats();
+                        break;
+                    }
+                }
+            }
+        }
 
-<footer><p>&copy; 2024 HealthCare Clinic | Gestion des Médecins — Module Admin Safa</p></footer>
+        // Update statistics
+        function updateStats() {
+            const table = document.getElementById('doctorsTable').getElementsByTagName('tbody')[0];
+            const totalDoctors = table.getElementsByTagName('tr').length;
+            
+            // Update total doctors count
+            const statCards = document.querySelectorAll('.stat-card .number');
+            if (statCards[0]) {
+                statCards[0].textContent = totalDoctors;
+            }
+        }
 
-<script>
-// ---- Filtrage tableau ----
-function filterTable() {
-  const search = document.getElementById('searchAdmin').value.toLowerCase();
-  const spec = document.getElementById('filterSpec').value;
-  const status = document.getElementById('filterStatus').value;
-  const rows = document.querySelectorAll('#doctorsBody tr');
-  let visible = 0;
-  rows.forEach(row => {
-    const name = row.getAttribute('data-name') || '';
-    const rowSpec = row.getAttribute('data-spec') || '';
-    const rowStatus = row.getAttribute('data-status') || '';
-    const ok = name.includes(search)
-      && (spec === '' || rowSpec === spec)
-      && (status === '' || rowStatus === status);
-    row.style.display = ok ? '' : 'none';
-    if (ok) visible++;
-  });
-  document.getElementById('noAdminResults').style.display = visible === 0 ? 'block' : 'none';
-}
-
-// ---- Modals ----
-function openAddModal() { document.getElementById('modal-add').classList.add('active'); }
-function openEditModal(id) { document.getElementById('modal-edit').classList.add('active'); }
-function closeModal(id) { document.getElementById('modal-' + id).classList.remove('active'); }
-
-document.querySelectorAll('.modal-overlay').forEach(o => {
-  o.addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); });
-});
-
-// ---- Ajouter médecin ----
-let rowCount = 8;
-function addDoctor() {
-  const prenom = document.getElementById('add-prenom').value.trim();
-  const nom = document.getElementById('add-nom').value.trim();
-  const role = document.getElementById('add-role').value;
-  const spec = document.getElementById('add-spec').value;
-  const email = document.getElementById('add-email').value.trim();
-  const tel = document.getElementById('add-tel').value.trim();
-  const exp = document.getElementById('add-exp').value;
-
-  if (!prenom || !nom || !email) {
-    alert('Veuillez remplir les champs obligatoires (Prénom, Nom, Email).');
-    return;
-  }
-
-  rowCount++;
-  const tbody = document.getElementById('doctorsBody');
-  const colors = {'Cardiologie':'#3498db','Pédiatrie':'#2ecc71','Dermatologie':'#e67e22','Neurologie':'#9b59b6','Orthopédie':'#1abc9c','Gynécologie':'#e91e8c','Médecine Générale':'#c0392b','Infirmier(ère)':'#34495e'};
-  const color = colors[spec] || '#7f8c8d';
-  const titre = role === 'Infirmier(ère)' ? '' : 'Dr. ';
-  const emoji = prenom.toLowerCase().includes('a') || nom.toLowerCase().includes('a') ? '👩‍⚕️' : '👨‍⚕️';
-
-  const tr = document.createElement('tr');
-  tr.setAttribute('data-name', (prenom + ' ' + nom).toLowerCase());
-  tr.setAttribute('data-spec', spec);
-  tr.setAttribute('data-status', 'Actif');
-  tr.innerHTML = `
-    <td>${rowCount}</td>
-    <td><div class="doc-avatar" style="background:${color};">${emoji}</div>${titre}${prenom} ${nom}</td>
-    <td><span class="specialty-badge" style="background:${color};">${spec}</span></td>
-    <td>${email}</td>
-    <td>${tel || '–'}</td>
-    <td>${exp || '–'} ans</td>
-    <td><span class="status-ok">✅ Actif</span></td>
-    <td>
-      <button class="btn btn-primary btn-sm" onclick="openEditModal(${rowCount})">✏️ Modifier</button>
-      <button class="btn btn-warning btn-sm" onclick="toggleStatus(this)">⏸ Désactiver</button>
-      <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">🗑 Supprimer</button>
-    </td>`;
-  tbody.appendChild(tr);
-
-  const msg = document.getElementById('add-success');
-  msg.style.display = 'block';
-  setTimeout(() => { msg.style.display = 'none'; closeModal('add'); showGlobalSuccess(); }, 1800);
-
-  // Vider le formulaire
-  ['add-prenom','add-nom','add-email','add-tel','add-ordre','add-exp','add-langues','add-bio','add-horaires'].forEach(id => document.getElementById(id).value = '');
-}
-
-// ---- Enregistrer modification ----
-function saveEdit() {
-  const msg = document.getElementById('edit-success');
-  msg.style.display = 'block';
-  setTimeout(() => { msg.style.display = 'none'; closeModal('edit'); showGlobalSuccess(); }, 1800);
-}
-
-// ---- Supprimer ligne ----
-let rowToDelete = null;
-function deleteRow(btn) {
-  rowToDelete = btn.closest('tr');
-  document.getElementById('modal-confirm').classList.add('active');
-}
-function confirmDelete() {
-  if (rowToDelete) { rowToDelete.remove(); rowToDelete = null; }
-  closeModal('confirm');
-  showGlobalSuccess('🗑 Médecin supprimé avec succès !');
-}
-
-// ---- Toggle statut ----
-function toggleStatus(btn) {
-  const row = btn.closest('tr');
-  const statusCell = row.querySelector('td:nth-child(7)');
-  const isActive = row.getAttribute('data-status') === 'Actif';
-  if (isActive) {
-    row.setAttribute('data-status', 'Inactif');
-    statusCell.innerHTML = '<span class="status-low">❌ Inactif</span>';
-    btn.textContent = '▶ Activer';
-    btn.className = 'btn btn-success btn-sm';
-  } else {
-    row.setAttribute('data-status', 'Actif');
-    statusCell.innerHTML = '<span class="status-ok">✅ Actif</span>';
-    btn.textContent = '⏸ Désactiver';
-    btn.className = 'btn btn-warning btn-sm';
-  }
-  showGlobalSuccess('✅ Statut mis à jour !');
-}
-
-// ---- Message succès global ----
-function showGlobalSuccess(msg) {
-  const el = document.getElementById('alert-success');
-  el.textContent = msg || '✅ Opération réalisée avec succès !';
-  el.style.display = 'block';
-  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  setTimeout(() => el.style.display = 'none', 3000);
-}
-</script>
+        // Search functionality (bonus)
+        function searchDoctors() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toUpperCase();
+            const table = document.getElementById('doctorsTable');
+            const tr = table.getElementsByTagName('tr');
+            
+            for (let i = 1; i < tr.length; i++) {
+                let txtValue = tr[i].textContent || tr[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = '';
+                } else {
+                    tr[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
 </body>
 </html>
