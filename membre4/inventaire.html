@@ -3,20 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gestion de l'Inventaire - Pharmacie</title>
-<link rel="stylesheet" href="assets/css/styles.css">
+<title>Pharmacie</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
 <div class="top-nav">
-<h1> HealthCare Clinic - Gestion Pharmacie</h1>
+<h1> Clinique Sante + </h1>
 <ul class="nav-links">
-<li><a href="admin_rdv.html"> Rendez-vous</a></li>
-<li><a href="admin_medecins.html"> Médecins</a></li>
+<li><a href="#statistics" class="nav-link">Statistiques</a></li>
+<li><a href="#appointments" class="nav-link">Rendez-vous Medecins</a></li>
+<li><a href="#doctors" class="nav-link">Liste des Medecins</a></li>
+<li><a href="#patients" class="nav-link">Liste des Patients</a></li>
 <li><a href="inventaire.html" class="active"> Inventaire</a></li>
-<li><a href="admin_blog_editor.html"> Blog</a></li>
-<li><a href="admin_revenus.html"> Revenus</a></li>
+<li><a href="admin_blog_editor.html"> Blog et Questions</a></li>
+<li><a href="#reclamations" class="nav-link">Reclamations</a></li>
 <li><button class="btn btn-danger">Déconnexion</button></li>
 </ul>
 </div>
@@ -30,23 +32,23 @@
 </div>
 
 <div class="grid">
-<div class="stat-card" style="background: #3498db;">
+<div class="stat-card" style="background:blue;">
 <h3> Total Articles</h3>
 <div class="number">127</div>
 <p>Médicaments référencés</p>
 </div>
-<div class="stat-card" style="background: #e74c3c;">
+<div class="stat-card" style="background:red;">
 <h3> Stock Critique</h3>
 <div class="number">12</div>
 <p>Nécessitent réapprovisionnement</p>
 </div>
-<div class="stat-card" style="background: #f39c12;">
+<div class="stat-card" style="background:orange;">
 <h3> Stock Moyen</h3>
 <div class="number">38</div>
 <p>À surveiller</p>
 </div>
-<div class="stat-card" style="background: #2ecc71;">
-<h3>✓ Stock OK</h3>
+<div class="stat-card" style="background: green;">
+<h3>Stock OK</h3>
 <div class="number">77</div>
 <p>Niveaux optimaux</p>
 </div>
@@ -117,8 +119,129 @@
 </label>
 </div>
 
-<button type="submit" class="btn btn-success">✓ Ajouter le Médicament</button>
-<button type="reset" class="btn btn-warning">↺ Réinitialiser</button>
+<button type="submit" class="btn btn-success"> Ajouter le Médicament</button>
+<button type="reset" class="btn btn-warning"> Réinitialiser</button>
+</form>
+</div>
+</div>
+
+<div class="card">
+<h2> Modifier un Médicament</h2>
+<div class="form-container">
+<form id="form-modifier">
+<div class="form-row">
+<div class="form-group">
+<label for="edit-id">ID du Médicament *</label>
+<input type="text" id="edit-id" placeholder="Ex: #001" required>
+</div>
+<div class="form-group">
+<label for="edit-name">Nom du Médicament *</label>
+<input type="text" id="edit-name" placeholder="Ex: Paracétamol" required>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="edit-category">Catégorie *</label>
+<select id="edit-category" required>
+<option value="">Sélectionner une catégorie</option>
+<option value="analgesique">Analgésique</option>
+<option value="antibiotique">Antibiotique</option>
+<option value="cardiovasculaire">Cardiovasculaire</option>
+<option value="digestif">Digestif</option>
+<option value="respiratoire">Respiratoire</option>
+<option value="vitamines">Vitamines & Suppléments</option>
+<option value="autre">Autre</option>
+</select>
+</div>
+<div class="form-group">
+<label for="edit-dosage">Dosage</label>
+<input type="text" id="edit-dosage" placeholder="Ex: 500mg">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="edit-price">Prix (TND) *</label>
+<input type="number" id="edit-price" step="0.01" placeholder="Ex: 15.99" required>
+</div>
+<div class="form-group">
+<label for="edit-stock">Nouvelle Quantité en Stock *</label>
+<input type="number" id="edit-stock" placeholder="Ex: 150" required>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="edit-threshold">Seuil d'Alerte *</label>
+<input type="number" id="edit-threshold" placeholder="Ex: 20" required>
+</div>
+<div class="form-group">
+<label for="edit-prescription">Ordonnance requise</label>
+<select id="edit-prescription">
+<option value="non">Non</option>
+<option value="oui">Oui</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label for="edit-description">Description</label>
+<textarea id="edit-description" rows="3" placeholder="Description mise à jour du médicament..."></textarea>
+</div>
+<button type="submit" class="btn btn-primary"> Enregistrer les Modifications</button>
+<button type="reset" class="btn btn-warning"> Réinitialiser</button>
+</form>
+</div>
+</div>
+
+<div class="card">
+<h2> Formulaire de Commande / Réapprovisionnement</h2>
+<div class="form-container">
+<form id="form-commande">
+<div class="form-row">
+<div class="form-group">
+<label for="cmd-med-name">Médicament à Commander *</label>
+<input type="text" id="cmd-med-name" placeholder="Ex: Lisinopril 10mg" required>
+</div>
+<div class="form-group">
+<label for="cmd-fournisseur">Fournisseur *</label>
+<select id="cmd-fournisseur" required>
+<option value="">Sélectionner un fournisseur</option>
+<option value="pharmapro">PharmaPro SA</option>
+<option value="medisupply">MediSupply Ltd</option>
+<option value="biomed">BioMed Distribution</option>
+<option value="autre">Autre</option>
+</select>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="cmd-quantite">Quantité à Commander *</label>
+<input type="number" id="cmd-quantite" placeholder="Ex: 200" required>
+</div>
+<div class="form-group">
+<label for="cmd-urgence">Niveau d'Urgence *</label>
+<select id="cmd-urgence" required>
+<option value="">Sélectionner</option>
+<option value="critique">Critique – Livraison immédiate</option>
+<option value="haute">Haute – Sous 48h</option>
+<option value="normale">Normale – Sous 1 semaine</option>
+</select>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="cmd-date">Date de Commande Souhaitée</label>
+<input type="date" id="cmd-date">
+</div>
+<div class="form-group">
+<label for="cmd-prix-unit">Prix Unitaire Estimé (TND)</label>
+<input type="number" id="cmd-prix-unit" step="0.01" placeholder="Ex: 18.50">
+</div>
+</div>
+<div class="form-group">
+<label for="cmd-notes">Notes / Justification</label>
+<textarea id="cmd-notes" rows="3" placeholder="Justification de la commande, remarques particulières..."></textarea>
+</div>
+<button type="submit" class="btn btn-success"> Soumettre la Commande</button>
+<button type="reset" class="btn btn-warning"> Réinitialiser</button>
 </form>
 </div>
 </div>
@@ -162,7 +285,7 @@
 <div class="stock-bar-fill high" style="width: 90%;"></div>
 </div>
 </td>
-<td><span class="status-ok">✓ OK</span></td>
+<td><span class="status-ok"> OK</span></td>
 <td>5.99</td>
 <td class="action-buttons">
 <button class="btn btn-primary"></button>
@@ -180,7 +303,7 @@
 <div class="stock-bar-fill high" style="width: 70%;"></div>
 </div>
 </td>
-<td><span class="status-ok">✓ OK</span></td>
+<td><span class="status-ok"> OK</span></td>
 <td>8.50</td>
 <td class="action-buttons">
 <button class="btn btn-primary"></button>
@@ -198,7 +321,7 @@
 <div class="stock-bar-fill medium" style="width: 38%;"></div>
 </div>
 </td>
-<td><span class="status-warning">⚠ MOYEN</span></td>
+<td><span class="status-warning"> MOYEN</span></td>
 <td>12.99</td>
 <td class="action-buttons">
 <button class="btn btn-primary"></button>
@@ -216,7 +339,7 @@
 <div class="stock-bar-fill low" style="width: 0%;"></div>
 </div>
 </td>
-<td><span class="status-critical">✗ CRITIQUE</span></td>
+<td><span class="status-critical"> CRITIQUE</span></td>
 <td>19.99</td>
 <td class="action-buttons">
 <button class="btn btn-primary"></button>
