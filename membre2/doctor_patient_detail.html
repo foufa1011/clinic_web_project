@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dossier Patient - HealthCare Clinic</title>
+    <link rel="stylesheet" href="style_dossiers.css">
+</head>
+<body>
+    <header>
+        <div class="logo"> HealthCare Clinic</div>
+        <a href="doctor_patients.html" style="color:white; text-decoration:none">← Retour</a>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2> Dossier Médical : Sami Ben Ali</h2>
+            <p><b>Groupe Sanguin:</b> O+ | <b>Antécédents:</b> Hypertension</p>
+        </div>
+
+        <div class="card">
+            <h2> Formulaire : Ajouter une Note Médicale</h2>
+            <form action="#">
+                <div class="form-group">
+                    <label>Type de Consultation</label>
+                    <select><option>Routine</option><option>Urgence</option></select>
+                </div>
+                <div class="form-group">
+                    <label>Observations du Docteur</label>
+                    <textarea rows="4" placeholder="Saisir les détails..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Enregistrer dans le dossier</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 HealthCare Clinic - Tous droits réservés</p>
+        <p style="margin-top: 5px; font-size: 14px;"></p>
+    </footer>
+</body>
+</html>
