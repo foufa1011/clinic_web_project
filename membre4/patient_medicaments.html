@@ -3,19 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pharmacie - Médicaments Disponibles</title>
-<link rel="stylesheet" href="assets/css/styles.css">
+<title>Médicaments Disponibles</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
 <div class="top-nav">
-<h1> HealthCare Clinic - Pharmacie</h1>
+<h1> Clinique Sante +</h1>
 <ul class="nav-links">
 <li><a href="index.html"> Accueil</a></li>
-<li><a href="patient_rdv.html"> Rendez-vous</a></li>
-<li><a href="patient_medecins.html"> Médecins</a></li>
+<li><a href="patient_rdv.html" class="action-link">Mes rendez-vous</a></li>
+<a href="patient_analyses.html" class="action-link">Mes Analyses</a>
+<a href="patient_medecins.html" class="action-link">Médecins</a>
+<a href="patient_medicaments.html" class="action-link">Médicaments</a>
+<a href="patient_blog.html" class="action-link">Blog Santé</a>
+<a href="patient_factures.html" class="action-link">Paiement</a>
 <li><a href="patient_medicaments.html" class="active"> Pharmacie</a></li>
+<a href="réclamations.html" class="action-link">Réclamation</a>
 <li><a href="patient_blog.html"> Blog</a></li>
 <li><button class="btn btn-danger">Déconnexion</button></li>
 </ul>
@@ -26,7 +31,7 @@
 
 <div class="card">
 <h1>Pharmacie - Médicaments Disponibles</h1>
-<p style="color: #666; margin-top: 10px;">Consultez notre catalogue de médicaments disponibles avec leurs prix et disponibilités</p>
+<p class="card-subtitle">Consultez notre catalogue de médicaments disponibles avec leurs prix et disponibilités</p>
 </div>
 
 <div class="info-box">
@@ -58,7 +63,7 @@
 <p>25 produits</p>
 </div>
 <div class="category-card">
-<h3>💉 Antibiotiques</h3>
+<h3> Antibiotiques</h3>
 <p>18 produits</p>
 </div>
 <div class="category-card">
@@ -101,7 +106,7 @@
 <td>Soulagement de la douleur et de la fièvre</td>
 <td>500mg</td>
 <td class="price">5.99</td>
-<td><span class="status-ok">✓ En stock (450)</span></td>
+<td><span class="status-ok"> En stock (450)</span></td>
 <td>Non</td>
 </tr>
 <tr>
@@ -110,7 +115,7 @@
 <td>Anti-inflammatoire non stéroïdien</td>
 <td>400mg</td>
 <td class="price">8.50</td>
-<td><span class="status-ok">✓ En stock (280)</span></td>
+<td><span class="status-ok">En stock (280)</span></td>
 <td>Non</td>
 </tr>
 <tr>
@@ -119,7 +124,7 @@
 <td>Traitement des infections bactériennes</td>
 <td>250mg</td>
 <td class="price">12.99</td>
-<td><span class="status-low">⚠ Stock limité (75)</span></td>
+<td><span class="status-low">Stock limité (75)</span></td>
 <td>Oui</td>
 </tr>
 <tr>
@@ -128,7 +133,7 @@
 <td>Antidouleur et anticoagulant</td>
 <td>100mg</td>
 <td class="price">3.99</td>
-<td><span class="status-ok">✓ En stock (520)</span></td>
+<td><span class="status-ok"> En stock (520)</span></td>
 <td>Non</td>
 </tr>
 <tr>
@@ -137,7 +142,7 @@
 <td>Traitement des troubles gastriques</td>
 <td>20mg</td>
 <td class="price">15.50</td>
-<td><span class="status-ok">✓ En stock (165)</span></td>
+<td><span class="status-ok">En stock (165)</span></td>
 <td>Oui</td>
 </tr>
 <tr>
@@ -146,7 +151,7 @@
 <td>Traitement des allergies</td>
 <td>10mg</td>
 <td class="price">9.75</td>
-<td><span class="status-ok">✓ En stock (210)</span></td>
+<td><span class="status-ok"> En stock (210)</span></td>
 <td>Non</td>
 </tr>
 <tr>
@@ -155,7 +160,7 @@
 <td>Contrôle de la glycémie (diabète type 2)</td>
 <td>500mg</td>
 <td class="price">18.99</td>
-<td><span class="status-ok">✓ En stock (145)</span></td>
+<td><span class="status-ok"> En stock (145)</span></td>
 <td>Oui</td>
 </tr>
 <tr>
@@ -164,7 +169,7 @@
 <td>Réduction du cholestérol</td>
 <td>10mg</td>
 <td class="price">22.50</td>
-<td><span class="status-low">⚠ Stock limité (45)</span></td>
+<td><span class="status-low"> Stock limité (45)</span></td>
 <td>Oui</td>
 </tr>
 <tr>
@@ -173,7 +178,7 @@
 <td>Bronchodilatateur (asthme)</td>
 <td>100mcg/dose</td>
 <td class="price">14.25</td>
-<td><span class="status-ok">✓ En stock (98)</span></td>
+<td><span class="status-ok">En stock (98)</span></td>
 <td>Oui</td>
 </tr>
 <tr>
@@ -182,7 +187,7 @@
 <td>Supplément vitaminique</td>
 <td>1000 UI</td>
 <td class="price">11.50</td>
-<td><span class="status-ok">✓ En stock (340)</span></td>
+<td><span class="status-ok">En stock (340)</span></td>
 <td>Non</td>
 </tr>
 <tr>
@@ -191,7 +196,7 @@
 <td>Renforcement du système immunitaire</td>
 <td>15mg</td>
 <td class="price">8.99</td>
-<td><span class="status-ok">✓ En stock (275)</span></td>
+<td><span class="status-ok">En stock (275)</span></td>
 <td>Non</td>
 </tr>
 <tr>
@@ -200,7 +205,7 @@
 <td>Complément en magnésium</td>
 <td>300mg</td>
 <td class="price">13.75</td>
-<td><span class="status-ok">✓ En stock (188)</span></td>
+<td><span class="status-ok">En stock (188)</span></td>
 <td>Non</td>
 </tr>
 <tr>
@@ -209,7 +214,7 @@
 <td>Traitement des infections respiratoires</td>
 <td>250mg</td>
 <td class="price">16.99</td>
-<td><span class="status-low">⚠ Stock limité (32)</span></td>
+<td><span class="status-low"> Stock limité (32)</span></td>
 <td>Oui</td>
 </tr>
 <tr>
@@ -218,7 +223,7 @@
 <td>Traitement des symptômes allergiques</td>
 <td>10mg</td>
 <td class="price">7.50</td>
-<td><span class="status-ok">✓ En stock (425)</span></td>
+<td><span class="status-ok">En stock (425)</span></td>
 <td>Non</td>
 </tr>
 <tr>
@@ -227,7 +232,7 @@
 <td>Traitement de l'hypertension</td>
 <td>10mg</td>
 <td class="price">19.99</td>
-<td><span class="status-out">✗ Rupture de stock</span></td>
+<td><span class="status-out"> Rupture de stock</span></td>
 <td>Oui</td>
 </tr>
 </tbody>
@@ -235,11 +240,60 @@
 </div>
 
 <div class="card">
+<h2> Demande de Médicament</h2>
+<div class="form-container">
+<form id="form-demande">
+<div class="form-row">
+<div class="form-group">
+<label for="dem-patient-nom">Nom du Patient *</label>
+<input type="text" id="dem-patient-nom" placeholder="Ex: Ahmed Ben Ali" required>
+</div>
+<div class="form-group">
+<label for="dem-patient-id">Numéro de Dossier Patient</label>
+<input type="text" id="dem-patient-id" placeholder="Ex: PAT-00123">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="dem-medicament">Médicament Demandé *</label>
+<input type="text" id="dem-medicament" placeholder="Ex: Paracétamol 500mg" required>
+</div>
+<div class="form-group">
+<label for="dem-quantite">Quantité *</label>
+<input type="number" id="dem-quantite" placeholder="Ex: 2 boîtes" min="1" required>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="dem-ordonnance">Ordonnance (si requise)</label>
+<input type="file" id="dem-ordonnance" accept=".pdf,.jpg,.png">
+</div>
+<div class="form-group">
+<label for="dem-medecin">Médecin Prescripteur</label>
+<input type="text" id="dem-medecin" placeholder="Ex: Dr. Karim Mansour">
+</div>
+</div>
+<div class="form-group">
+<label for="dem-remarques">Remarques / Informations complémentaires</label>
+<textarea id="dem-remarques" rows="3" placeholder="Allergies connues, posologie souhaitée, remarques particulières..."></textarea>
+</div>
+<div class="form-group">
+<label>
+<input type="checkbox" id="dem-urgence"> Demande urgente
+</label>
+</div>
+<button type="submit" class="btn btn-success"> Soumettre la Demande</button>
+<button type="reset" class="btn btn-warning"> Réinitialiser</button>
+</form>
+</div>
+</div>
+
+<div class="card">
 <h2> Besoin d'aide ?</h2>
-<p style="margin-bottom: 15px;">Pour toute question concernant les médicaments ou les prescriptions :</p>
-<ul style="margin-left: 20px; line-height: 1.8;">
+<p class="help-intro">Pour toute question concernant les médicaments ou les prescriptions :</p>
+<ul class="help-list">
 <li> Contactez notre pharmacien : <strong>+216 71 123 456</strong></li>
-<li> Email : <strong>pharmacie@healthcareclinic.tn</strong></li>
+<li> Email : pharmacie@healthcareclinic.tn</li>
 <li> Horaires : Lundi - Vendredi : 8h00 - 20h00 | Samedi : 9h00 - 18h00</li>
 <li> Urgences : Service disponible 24h/24</li>
 </ul>
@@ -249,8 +303,9 @@
 
 <footer>
 <p>&copy; 2026 HealthCare Clinic - Tous droits réservés</p>
-<p style="margin-top: 5px; font-size: 14px;">Pharmacie agréée par le Ministère de la Santé - Licence N° 12345</p>
+<p class="footer-license">Pharmacie agréée par le Ministère de la Santé - Licence N° 12345</p>
 </footer>
 
 </body>
 </html>
+
